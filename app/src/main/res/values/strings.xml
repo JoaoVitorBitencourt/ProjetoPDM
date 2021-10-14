@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">Projeto PDM</string>
+    <string name="app_name">EasyTravel</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha_usuario">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="btn_reservar">Reservar</string>
+    <string name="btn_liberar">Liberar mesa</string>
+    <string name="btn_salvar">SALVAR OPERAÇÃO</string>
+    <string name="btn_reservartodos">Reservar todos</string>
+    <string name="btn_cadastro">Cadastrar</string>
+    <string name="config">Configurações</string>
+    <string name="numMesa">Número Mesa</string>
+
+    <string name="mesa1">1</string>
+    <string name="mesa2">2</string>
+    <string name="mesa3">3</string>
+    <string name="mesa4">4</string>
+    <string name="mesa5">5</string>
+    <string name="mesa6">6</string>
+    <string name="mesa7">7</string>
+    <string name="mesa8">8</string>
+    <string name="mesa9">9</string>
+
+    <string name="red">red</string>
+    <string name="green">green</string>
+    <string name="blue">blue</string>
+
+    <string name="corReservado">Cor reservado</string>
+    <string name="corLiberado">Cor liberado</string>
+
+    <string name="opInvalida">Operação inválida. Todas as mesas já possuem reserva</string>
+    <string name="mesaInvalida">Mesa inválida!</string>
+
+    <string name="usernameBlank">Campo usuário não pode estar em branco!</string>
+    <string name="passwordBlank">Campo senha não pode estar em branco!</string>
+    <string name="invalidLogin">Usuário ou senha inválidos!</string>
+
+    <string name="dadoInvalido">Tipo de dado inválido!</string>
 </resources>
