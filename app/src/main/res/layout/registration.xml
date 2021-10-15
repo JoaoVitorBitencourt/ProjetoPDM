@@ -31,4 +31,11 @@
         android:layout_height="wrap_content"
         android:hint="@string/btn_cadastro"/>
 
+    <Button
+        android:id="@+id/btn_voltar_registration"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/btn_voltar_registration"/>
+
+
 </LinearLayout>

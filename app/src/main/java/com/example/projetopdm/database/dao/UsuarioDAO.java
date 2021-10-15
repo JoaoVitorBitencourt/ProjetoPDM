@@ -1,5 +1,6 @@
 package com.example.projetopdm.database.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 
 import com.example.projetopdm.database.DBOpenHelper;
@@ -22,8 +23,23 @@ public class UsuarioDAO extends AbstrataDAO {
         db_helper = new DBOpenHelper(contexto);
     }
 
-    public int Insert(){
-        return 0;
+    public long Insert(UsuarioModel model){
+
+        long linhasAfetadas;
+
+        try{
+            Open();
+            ContentValues values = new ContentValues();
+            values.put(UsuarioModel.COLUNA_NOME, model.getNome());
+            values.put(UsuarioModel.COLUNA_USUARIO, model.getUsuario());
+            values.put(UsuarioModel.COLUNA_SENHA, model.getSenha());
+            linhasAfetadas = db.insert(UsuarioModel.TABELA_NOME,null,values);
+
+        }finally {
+            Close();
+        }
+
+        return linhasAfetadas;
     }
 
     public int Delete(){

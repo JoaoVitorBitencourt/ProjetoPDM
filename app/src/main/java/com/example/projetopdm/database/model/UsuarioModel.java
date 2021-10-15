@@ -13,7 +13,7 @@ package com.example.projetopdm.database.model;
 
         public static final String
                 CREATE_TABLE=
-                "create table"+ TABELA_NOME+""
+                "create table "+ TABELA_NOME+ ""
                         +"("
                         +   COLUNA_ID + " integer primary key autoincrement, "
                         +   COLUNA_NOME +" text not null, "
@@ -47,15 +47,11 @@ package com.example.projetopdm.database.model;
 
         public void setId(int id) { this.id = id; }
 
-        public void setNome(String nome) { this.nome=nome; }
+        public void setNome(String nome) { this.nome = nome; }
 
-        public void setUsuario(String usuario) {
-            this.usuario = usuario;
-        }
+        public void setUsuario(String usuario) { this.usuario = usuario; }
 
-        public void setSenha(String senha) {
-            this.senha = senha;
-        }
+        public void setSenha(String senha) { this.senha = senha; }
     }
 
 
