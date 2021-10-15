@@ -2,14 +2,33 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <EditText
-        android:id="@+id/editNomeUsuario"
+        android:id="@+id/editNome"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="20px"
-        android:hint="@string/usuario" />
+        android:hint="@string/nome" />
+
+    <EditText
+        android:id="@+id/editUsuario"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/usuario"/>
+
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/senha_usuario"/>
+
+    <Button
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/btn_cadastro"/>
 
 </LinearLayout>

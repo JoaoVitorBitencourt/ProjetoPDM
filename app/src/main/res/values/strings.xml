@@ -3,7 +3,7 @@
     <string name="usuario">Usuário</string>
     <string name="senha_usuario">Senha</string>
     <string name="btn_entrar">Entrar</string>
-    <string name="btn_reservar">Reservar</string>
+    <string name="nome">Nome</string>
     <string name="btn_liberar">Liberar mesa</string>
     <string name="btn_salvar">SALVAR OPERAÇÃO</string>
     <string name="btn_reservartodos">Reservar todos</string>
