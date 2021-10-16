@@ -26,12 +26,12 @@ package com.example.projetopdm.database.model;
 
 
 
-        private int id;
+        private long id;
         private String nome;
         private String usuario;
         private String senha;
 
-        public int getId() {
+        public long getId() {
             return id;
         }
 
@@ -45,7 +45,7 @@ package com.example.projetopdm.database.model;
             return senha;
         }
 
-        public void setId(int id) { this.id = id; }
+        public void setId(long id) { this.id = id; }
 
         public void setNome(String nome) { this.nome = nome; }
 
