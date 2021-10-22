@@ -5,40 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Registration"
-    android:gravity="center">
+    tools:context=".Registration">
+
+    <ImageView
+        android:layout_width="221dp"
+        android:layout_height="161dp"
+        android:layout_gravity="center"
+        android:paddingBottom="-30dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/handsphone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Cadastro"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="36dp"
+        android:textColor="@color/primary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/MensagemCadastro"
+        android:layout_marginLeft="20dp"
+        android:textSize="16dp"
+        android:textColor="@color/auxiliary"/>
 
     <EditText
         android:id="@+id/editNome"
-        android:layout_width="225dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:hint="@string/nome" />
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center"
+        android:hint="@string/Email" />
 
     <EditText
-        android:id="@+id/editUsuario"
-        android:layout_width="225dp"
+        android:id="@+id/editNomeUsuario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/usuario"/>
+        android:layout_gravity="center"
+        android:paddingHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/usuario" />
 
     <EditText
-        android:id="@+id/editSenha"
-        android:layout_width="225dp"
+        android:id="@+id/editSenhaUsuario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/senha_usuario"/>
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center"
+        android:hint="@string/senha_usuario"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btn_cadastrar"
-        android:layout_width="225dp"
+        android:id="@+id/btnEntrar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/btn_cadastro"/>
-
-    <Button
-        android:id="@+id/btn_voltar_registration"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/btn_voltar_registration"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center"
+        android:text="@string/btn_cadastro" />
 
 
 </LinearLayout>

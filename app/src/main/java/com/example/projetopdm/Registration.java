@@ -25,7 +25,7 @@ public class Registration extends AppCompatActivity {
         dao= new UsuarioDAO(Registration.this);
 
 
-        editNome=findViewById(R.id.editNome);
+        /*editNome=findViewById(R.id.editNome);
         editUsuario=findViewById(R.id.editUsuario);
         editSenha=findViewById(R.id.editSenha);
         btn_cadastrar=findViewById(R.id.btn_cadastrar);
@@ -54,6 +54,6 @@ public class Registration extends AppCompatActivity {
             public void onClick(View v){
                 Registration.super.onBackPressed();
             }
-        });
+        });*/
     }
 }

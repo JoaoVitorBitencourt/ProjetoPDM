@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projetopdm.database.dao.UsuarioDAO;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
     private EditText editNomeUsuario, editSenhaUsuario;
+    private TextView cadastre_se;
     private Button btnEntrar, btnCadastro;
     private UsuarioDAO dao;
 
@@ -28,18 +30,19 @@ public class Login extends AppCompatActivity {
         dao = new UsuarioDAO(Login.this);
         Intent Cadastro = new Intent(Login.this, Registration.class);
         Intent Viagens = new Intent(Login.this, Trips.class);
+        cadastre_se = findViewById(R.id.cadastre_se);
 
         editNomeUsuario = findViewById(R.id.editNomeUsuario);
         editSenhaUsuario = findViewById(R.id.editSenhaUsuario);
         btnEntrar = findViewById(R.id.btnEntrar);
-        btnCadastro = findViewById(R.id.btnCadastro);
+        //btnCadastro = findViewById(R.id.btnCadastro);
 
-        btnCadastro.setOnClickListener(new View.OnClickListener() {
+        /*btnCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(Cadastro);
             }
-        });
+        });*/
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,13 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Usuário Não Encontrado!", Toast.LENGTH_SHORT).show();
                 }*/
 
+            }
+        });
+
+        cadastre_se.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Cadastro);
             }
         });
     }
