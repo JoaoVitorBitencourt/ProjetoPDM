@@ -19,4 +19,8 @@
     <string name="Favoritos">Favoritos</string>
     <string name="Procurar">Procurar</string>
     <string name="Informacao">Informações</string>
+    <string name="MinhasViagens">Minhas Viagens</string>
+    <string name="Gasolina">Gasolina</string>
+    <string name="TotalEstimadoDeQuilometros">Total estimado de quilômetros</string>
+    <string name="Extotkm">Ex: 42</string>
 </resources>
