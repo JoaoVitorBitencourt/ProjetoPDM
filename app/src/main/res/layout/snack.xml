@@ -55,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/combustivel" />
+                android:src="@drawable/fastfood" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="@string/Gasolina"/>
+                android:text="@string/refeicao"/>
         </LinearLayout>
 
         <TextView
@@ -76,46 +76,9 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="@string/TotalEstimadoDeQuilometros"/>
+            android:text="Custo estimado por refeição"/>
 
         <EditText
-            android:id="@+id/TotEstimadoKm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:layout_marginHorizontal="30dp"
-            android:hint="@string/Extotkm"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:text="Média de quilômetros por litro"/>
-
-        <EditText
-            android:id="@+id/MediaKmL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:layout_marginHorizontal="30dp"
-            android:hint="Ex: 10 km/l"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:text="Custo médio por litro"/>
-
-        <EditText
-            android:id="@+id/CustoMedioL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -130,15 +93,14 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="Total de veículos"/>
+            android:text="Refeições por dia"/>
 
         <EditText
-            android:id="@+id/TotalVeiculos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="Ex: 1"/>
+            android:hint="Ex: 4"/>
 
         <Switch
             android:id="@+id/switch1"
@@ -174,7 +136,6 @@
                 android:text="Total"/>
 
             <TextView
-                android:id="@+id/ValorTot"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="right"
@@ -184,18 +145,6 @@
                 android:text="R$ 00,00"
                 android:layout_columnWeight="1"/>
         </GridLayout>
-
-        <Button
-            android:id="@+id/calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="calcular"/>
-
-        <Button
-            android:id="@+id/finalizar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="finalizar"/>
 
     </LinearLayout>
 

@@ -24,6 +24,8 @@
         <activity android:name=".Login"/>
         <activity android:name=".Registration"/>
         <activity android:name=".Trips"/>
+        <activity android:name=".Trip"/>
+        <activity android:name=".Fuel"/>
     </application>
 
 </manifest>

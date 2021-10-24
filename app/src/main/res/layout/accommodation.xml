@@ -55,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:layout_marginLeft="20dp"
-                android:src="@drawable/combustivel" />
+                android:src="@drawable/imghotel" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:text="@string/Gasolina"/>
+                android:text="@string/hotel"/>
         </LinearLayout>
 
         <TextView
@@ -76,28 +76,9 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="@string/TotalEstimadoDeQuilometros"/>
+            android:text="Custo médio (por noite)"/>
 
         <EditText
-            android:id="@+id/TotEstimadoKm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:layout_marginHorizontal="30dp"
-            android:hint="@string/Extotkm"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingLeft="10dp"
-            android:text="Média de quilômetros por litro"/>
-
-        <EditText
-            android:id="@+id/MediaKmL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -112,10 +93,9 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="Custo médio por litro"/>
+            android:text="Total de noites"/>
 
         <EditText
-            android:id="@+id/CustoMedioL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -130,10 +110,9 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="Total de veículos"/>
+            android:text="Total de quartos"/>
 
         <EditText
-            android:id="@+id/TotalVeiculos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -174,7 +153,6 @@
                 android:text="Total"/>
 
             <TextView
-                android:id="@+id/ValorTot"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="right"
@@ -184,18 +162,6 @@
                 android:text="R$ 00,00"
                 android:layout_columnWeight="1"/>
         </GridLayout>
-
-        <Button
-            android:id="@+id/calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="calcular"/>
-
-        <Button
-            android:id="@+id/finalizar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="finalizar"/>
 
     </LinearLayout>
 

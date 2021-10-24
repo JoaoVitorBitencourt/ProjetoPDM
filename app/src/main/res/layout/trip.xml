@@ -52,18 +52,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/viagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="teste"/>
         </LinearLayout>
 
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/adicionarViagem"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="right|bottom"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="60dp"
-        android:src="@drawable/adicionar_viagem" />
 
     <LinearLayout
         android:layout_width="match_parent"

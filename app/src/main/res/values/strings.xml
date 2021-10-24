@@ -23,4 +23,8 @@
     <string name="Gasolina">Gasolina</string>
     <string name="TotalEstimadoDeQuilometros">Total estimado de quilômetros</string>
     <string name="Extotkm">Ex: 42</string>
+    <string name="tarAerea">Tarifa Aérea</string>
+    <string name="refeicao">Refeições</string>
+    <string name="hotel">Hospedagem</string>
+    <string name="entretenimento">Entretenimento/Diversos</string>
 </resources>
