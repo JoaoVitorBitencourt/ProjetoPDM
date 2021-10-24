@@ -78,17 +78,16 @@ public class UsuarioDAO extends AbstrataDAO {
         return model;
     }
 
-    // select all, traz todos os usuários.
     public List<UsuarioModel> Select(){
 
         List<UsuarioModel> lista= new ArrayList<UsuarioModel>();
 
         try{
             Open();
-            Cursor cursor = db.query(UsuarioModel.TABELA_NOME,colunas,null,null,null,null,null); //-> Select * from TABELA_NOME;
+            Cursor cursor = db.query(UsuarioModel.COLUNA_ID,colunas,null,null,null,null,null); //-> Select * from TABELA_NOME;
             cursor.moveToFirst();
              while(!cursor.isAfterLast()){
-                 lista.add(CursorToStructure(cursor));
+                 lista.add(Cursor_id(cursor));
                  cursor.moveToNext();
              }
 
@@ -105,6 +104,12 @@ public class UsuarioDAO extends AbstrataDAO {
         model.setNome(cursor.getString(1));
         model.setUsuario(cursor.getString(2));
         model.setSenha(cursor.getString(3));
+        return model;
+    }
+
+    public final UsuarioModel Cursor_id(Cursor cursor){
+        UsuarioModel model=new UsuarioModel();
+        model.setId(cursor.getLong(0));
         return model;
     }
 
