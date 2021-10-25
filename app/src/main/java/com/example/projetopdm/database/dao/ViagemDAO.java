@@ -4,12 +4,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.example.projetopdm.Airfare;
 import com.example.projetopdm.Registration;
 import com.example.projetopdm.database.DBOpenHelper;
 import com.example.projetopdm.database.model.UsuarioModel;
 import com.example.projetopdm.database.model.Viagem;
 
 public class ViagemDAO extends AbstrataDAO{
+
+    Airfare airfare=new Airfare();
 
 
     private final String[]
@@ -29,14 +32,14 @@ public class ViagemDAO extends AbstrataDAO{
         db_helper = new DBOpenHelper(contexto);
     }
 
-    public long Insert(Viagem model, UsuarioModel modeluser){
+    public long Insert(Viagem model){
 
         long linhasAfetadas;
 
         try{
             Open();
             ContentValues values = new ContentValues();
-            values.put(Viagem.COLUNA_IDUSUARIO, modeluser.getId());
+            values.put(Viagem.COLUNA_IDUSUARIO, model.getIdusuario());
             values.put(Viagem.COLUNA_VALORTOTAL, model.getValor_total());
             values.put(Viagem.COLUNA_VALORTOTAL_COMBUSTIVEL, model.getTotal_combustivel());
             values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
@@ -50,6 +53,64 @@ public class ViagemDAO extends AbstrataDAO{
         }
 
         return linhasAfetadas;
+    }
+
+
+    public long Insert_id(Viagem model){
+
+        long linhasAfetadas;
+
+        try{
+            Open();
+            ContentValues values = new ContentValues();
+            values.put(Viagem.COLUNA_IDUSUARIO, model.getIdusuario());
+            linhasAfetadas = db.insert(UsuarioModel.TABELA_NOME,null,values);
+
+        }finally {
+            Close();
+        }
+
+        return linhasAfetadas;
+    }
+
+    public long Update_Airfare(Viagem model) {
+
+
+        long linhasAfetadas;
+        try {
+            Open();
+            ContentValues values = new ContentValues();
+            values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
+            linhasAfetadas=db.update(Viagem.TABELA_NOME,values,Viagem.getColunaId() + " = ?",new String[]{String.valueOf(airfare.getidViagem())});
+        }finally {
+            Close();
+        }
+        return linhasAfetadas;
+    }
+
+    public Viagem Select(){
+
+        Viagem model = null;
+        try{
+            Open();
+            Cursor cursor = db.query(
+                    Viagem.TABELA_NOME,
+                    colunas,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()){
+                model= CursorToStructure(cursor);
+                break;
+            }
+        }finally {
+            Close();
+        }
+        return model;
     }
 
 

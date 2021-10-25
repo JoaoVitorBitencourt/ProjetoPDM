@@ -38,14 +38,14 @@ public class Registration extends AppCompatActivity {
                 model.setUsuario(editUsuario.getText().toString());
                 model.setSenha(editSenha.getText().toString());
 
-                /*userVerify  = dao.Select(editUsuario.getText().toString(),editSenha.getText().toString());
+                userVerify  = dao.Select(editUsuario.getText().toString(),editSenha.getText().toString());
                 if(userVerify!=null){
                     Toast.makeText(Registration.this, "Usuário Já Cadastrado, por favor insira outro Usuário", Toast.LENGTH_SHORT).show();
                 }else{
                     if(dao.Insert(model)!=-1){
                         Toast.makeText(Registration.this, "Usuário Cadastrado", Toast.LENGTH_LONG).show();
                     }
-                }*/
+                }
             }
         });
 
