@@ -17,7 +17,7 @@ public class Viagem {
 
     public static final String
             CREATE_TABLE=
-            "create table "+ TABELA_NOME+ ""
+            "create table if not exists "+ TABELA_NOME+ ""
                     +"("
                     +   COLUNA_ID + " integer primary key autoincrement, "
                     +   COLUNA_IDUSUARIO + " integer not null, "

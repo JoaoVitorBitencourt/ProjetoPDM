@@ -31,9 +31,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL(UsuarioModel.DROP_TABLE);
-        db.execSQL(Entretenimento.DROP_TABLE);
-        db.execSQL(Viagem.DROP_TABLE);
         db.execSQL(UsuarioModel.CREATE_TABLE);
         db.execSQL(Entretenimento.CREATE_TABLE);
         db.execSQL(Viagem.CREATE_TABLE);
