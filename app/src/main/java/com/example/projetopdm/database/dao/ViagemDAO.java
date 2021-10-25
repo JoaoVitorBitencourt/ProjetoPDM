@@ -4,12 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.example.projetopdm.Registration;
 import com.example.projetopdm.database.DBOpenHelper;
-import com.example.projetopdm.database.model.Entretenimento;
 import com.example.projetopdm.database.model.UsuarioModel;
 import com.example.projetopdm.database.model.Viagem;
-
-import java.util.ArrayList;
 
 public class ViagemDAO extends AbstrataDAO{
 
@@ -31,18 +29,20 @@ public class ViagemDAO extends AbstrataDAO{
         db_helper = new DBOpenHelper(contexto);
     }
 
-    public long Insert(Viagem model){
+    public long Insert(Viagem model, UsuarioModel modeluser){
+
         long linhasAfetadas;
 
         try{
             Open();
             ContentValues values = new ContentValues();
-            values.put();
-            values.put();
-            values.put();
-            values.put();
-            values.put();
-            values.put();
+            values.put(Viagem.COLUNA_IDUSUARIO, modeluser.getId());
+            values.put(Viagem.COLUNA_VALORTOTAL, model.getValor_total());
+            values.put(Viagem.COLUNA_VALORTOTAL_COMBUSTIVEL, model.getTotal_combustivel());
+            values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
+            values.put(Viagem.COLUNA_REFERICOES, model.getRefeicoes());
+            values.put(Viagem.COLUNA_HOSPEDAGEM, model.getHospedagem());
+            values.put(Viagem.getColunaIdEntretenimento(),model.getId_entretenimento());
             linhasAfetadas = db.insert(UsuarioModel.TABELA_NOME,null,values);
 
         }finally {

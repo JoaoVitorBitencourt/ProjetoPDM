@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projetopdm.database.DBOpenHelper;
 import com.example.projetopdm.database.dao.UsuarioDAO;
 import com.example.projetopdm.database.model.UsuarioModel;
 
@@ -21,6 +22,7 @@ public class Login extends AppCompatActivity {
     private TextView cadastre_se;
     private Button btnEntrar, btnCadastro;
     private UsuarioDAO dao;
+    private String Usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,14 @@ public class Login extends AppCompatActivity {
         editNomeUsuario = findViewById(R.id.editNomeUsuario);
         editSenhaUsuario = findViewById(R.id.editSenhaUsuario);
         btnEntrar = findViewById(R.id.btnEntrar);
-        //btnCadastro = findViewById(R.id.btnCadastro);
 
-        /*btnCadastro.setOnClickListener(new View.OnClickListener() {
+        cadastre_se.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(Cadastro);
             }
-        });*/
+        });
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,9 +52,10 @@ public class Login extends AppCompatActivity {
                 UsuarioModel model = dao.Select(editNomeUsuario.getText().toString(),editSenhaUsuario.getText().toString());
                 startActivity(Viagens);
 
-                /* PARA FUNCIONAR A VALIDAÇÃO DO LOGIN É PRECISO DESCOMENTAR ESSE TRECHO E TIRAR O startActicity DA LINHA ACIMA.
+                // PARA FUNCIONAR A VALIDAÇÃO DO LOGIN É PRECISO DESCOMENTAR ESSE TRECHO E TIRAR O startActicity DA LINHA ACIMA.
 
-                if(model!=null){
+               /* if(model!=null){
+                    setUser(editNomeUsuario.getText().toString());
                     startActivity(Viagens);
                 }else{
                     Toast.makeText(Login.this, "Usuário Não Encontrado!", Toast.LENGTH_SHORT).show();
@@ -68,4 +71,14 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+    public void setUser(String Usuario){
+        this.Usuario=Usuario;
+    }
+
+    public String getUser(){
+        return this.Usuario;
+    }
+
+
 }

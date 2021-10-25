@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.example.projetopdm.database.dao.UsuarioDAO;
+import com.example.projetopdm.database.model.UsuarioModel;
+import com.example.projetopdm.database.model.Viagem;
 import com.example.projetopdm.util.calculations;
 
 import androidx.annotation.Nullable;
@@ -19,11 +23,16 @@ public class Fuel extends AppCompatActivity {
     private Switch switch1;
     private Button calcular, finalizar;
     private calculations calculos;
+    private UsuarioModel model;
+    private UsuarioDAO dao;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fuel);
+        Login login = new Login();
+        dao = new UsuarioDAO(Fuel.this);
 
         TotEstimadoKm = findViewById(R.id.TotEstimadoKm);
         MediaKmL = findViewById(R.id.MediaKmL);
@@ -34,6 +43,7 @@ public class Fuel extends AppCompatActivity {
         calcular = findViewById(R.id.calcular);
         finalizar = findViewById(R.id.finalizar);
         calculos = new calculations();
+        model = dao.Select(login.getUser());
 
         switch1.isChecked();
 
@@ -52,6 +62,14 @@ public class Fuel extends AppCompatActivity {
                 ValorTotal.setText(total);
             }
 
+        });
+
+        finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Viagem model = new Viagem();
+                model.setTotal_combustivel(Float.parseFloat(ValorTotal.getText().toString()));
+            }
         });
     }
 }

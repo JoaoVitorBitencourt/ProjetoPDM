@@ -7,8 +7,8 @@ package com.example.projetopdm.database.model;
 
         public static final String
                 COLUNA_ID="_id",
+                COLUNA_EMAIL="email",
                 COLUNA_USUARIO="usuario",
-                COLUNA_NOME="nome",
                 COLUNA_SENHA="senha";
 
         public static final String
@@ -16,7 +16,7 @@ package com.example.projetopdm.database.model;
                 "create table "+ TABELA_NOME+ ""
                         +"("
                         +   COLUNA_ID + " integer primary key autoincrement, "
-                        +   COLUNA_NOME +" text not null, "
+                        +   COLUNA_EMAIL +" text not null, "
                         +   COLUNA_USUARIO +" text not null, "
                         +   COLUNA_SENHA + " text not null "
                         +");";
@@ -27,7 +27,7 @@ package com.example.projetopdm.database.model;
 
 
         private long id;
-        private String nome;
+        private String email;
         private String usuario;
         private String senha;
 
@@ -35,7 +35,7 @@ package com.example.projetopdm.database.model;
             return id;
         }
 
-        public String getNome() { return nome; }
+        public String getEmail() { return email; }
 
         public String getUsuario() {
             return usuario;
@@ -47,7 +47,7 @@ package com.example.projetopdm.database.model;
 
         public void setId(long id) { this.id = id; }
 
-        public void setNome(String nome) { this.nome = nome; }
+        public void setEmail(String email) { this.email = email; }
 
         public void setUsuario(String usuario) { this.usuario = usuario; }
 
