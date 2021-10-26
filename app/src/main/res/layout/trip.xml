@@ -56,7 +56,31 @@
                 android:id="@+id/viagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="teste"/>
+                android:text="Airfare"/>
+
+            <Button
+                android:id="@+id/fuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fuel"/>
+
+            <Button
+                android:id="@+id/snack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SNACK"/>
+
+            <Button
+                android:id="@+id/accommodation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ACCOMMODATION"/>
+
+            <Button
+                android:id="@+id/entretenimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENTRETENIMENTO"/>
         </LinearLayout>
 
     </ScrollView>

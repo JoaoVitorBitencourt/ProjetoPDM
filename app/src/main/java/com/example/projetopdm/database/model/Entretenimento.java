@@ -2,7 +2,7 @@ package com.example.projetopdm.database.model;
 
 public class Entretenimento {
     public static final String
-            TABELA_NOME="tb_viagem";
+            TABELA_NOME="tb_entretenimento";
 
     public static final String
             COLUNA_ID="_id",

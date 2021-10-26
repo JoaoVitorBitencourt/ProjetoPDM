@@ -1,7 +1,10 @@
 package com.example.projetopdm;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +26,15 @@ public class Fuel extends AppCompatActivity {
     private EditText TotEstimadoKm, MediaKmL, CustoMedioL, TotalVeiculos;
     private TextView ValorTotal;
     private Switch switch1;
+    private String valorTot;
     private Button calcular, finalizar;
     private calculations calculos;
     private UsuarioModel model;
+    private SharedPreferences preferences;
     private UsuarioDAO dao;
     private ViagemDAO daoViagem;
     private float valor_combustivel_total;
-    private Viagem viagem;
+    private long id_user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,8 +42,11 @@ public class Fuel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fuel);
         dao = new UsuarioDAO(Fuel.this);
-        daoViagem= new ViagemDAO(Fuel.this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(Fuel.this);
+        id_user= preferences.getLong("ID", id_user);
         Viagem viagemModel = new Viagem();
+
+        daoViagem= new ViagemDAO(Fuel.this);
 
         TotEstimadoKm = findViewById(R.id.TotEstimadoKm);
         MediaKmL = findViewById(R.id.MediaKmL);
@@ -65,6 +73,7 @@ public class Fuel extends AppCompatActivity {
                                                   Integer.parseInt(TotalVeiculos.getText().toString()));
 
                 ValorTotal.setText(total);
+                valorTot=total;
             }
 
         });
@@ -72,13 +81,10 @@ public class Fuel extends AppCompatActivity {
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*viagemModel.setTotal_combustivel(Float.parseFloat(ValorTotal.getText().toString()));
-                viagemModel.setIdusuario(model.getId());
-                viagemModel.setRefeicoes(0);
-                viagemModel.setHospedagem(0);
-                viagemModel.setTarifa_aerea(0);
-                viagemModel.setValor_total(0);
-                daoViagem.Insert(viagemModel);*/
+                //System.out.println(Float.parseFloat(valorTot));
+                viagemModel.setTotal_combustivel(Float.parseFloat(valorTot));
+                viagemModel.setIdusuario(id_user);
+                daoViagem.Insert(viagemModel);
             }
 
         });

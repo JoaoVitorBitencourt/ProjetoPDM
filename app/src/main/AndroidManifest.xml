@@ -26,6 +26,10 @@
         <activity android:name=".Trips"/>
         <activity android:name=".Trip"/>
         <activity android:name=".Fuel"/>
+        <activity android:name=".Airfare"/>
+        <activity android:name=".Snack"/>
+        <activity android:name=".Accommodation"/>
+        <activity android:name=".Entretenimento"/>
     </application>
 
 </manifest>

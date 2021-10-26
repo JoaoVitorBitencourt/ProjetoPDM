@@ -5,7 +5,7 @@ public class Viagem {
             TABELA_NOME="tb_viagem";
 
     public static final String
-            COLUNA_ID="_id",
+            COLUNA_ID="id",
             COLUNA_IDUSUARIO="idusuario",
             COLUNA_VALORTOTAL="valor_total",
             COLUNA_VALORTOTAL_COMBUSTIVEL="total_combustivel",
@@ -22,10 +22,10 @@ public class Viagem {
                     +   COLUNA_ID + " integer primary key autoincrement, "
                     +   COLUNA_IDUSUARIO + " integer not null, "
                     +   COLUNA_VALORTOTAL + " float not null, "
-                    +   COLUNA_VALORTOTAL_COMBUSTIVEL + " float not null "
-                    +   COLUNA_TARIFA_AEREA + " float not null"
-                    +   COLUNA_REFERICOES + " refeicoes float not null"
-                    +   COLUNA_HOSPEDAGEM + " hospedagem float not null"
+                    +   COLUNA_VALORTOTAL_COMBUSTIVEL + " float not null, "
+                    +   COLUNA_TARIFA_AEREA + " float not null, "
+                    +   COLUNA_REFERICOES + " refeicoes float not null, "
+                    +   COLUNA_HOSPEDAGEM + " hospedagem float not null, "
                     +   COLUNA_ID_ENTRETENIMENTO + " id_entretenimento int);";
 
     public static final String

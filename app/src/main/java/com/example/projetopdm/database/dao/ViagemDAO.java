@@ -40,13 +40,13 @@ public class ViagemDAO extends AbstrataDAO{
             Open();
             ContentValues values = new ContentValues();
             values.put(Viagem.COLUNA_IDUSUARIO, model.getIdusuario());
-            values.put(Viagem.COLUNA_VALORTOTAL, model.getValor_total());
+            values.put(Viagem.COLUNA_VALORTOTAL, 0);
             values.put(Viagem.COLUNA_VALORTOTAL_COMBUSTIVEL, model.getTotal_combustivel());
-            values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
-            values.put(Viagem.COLUNA_REFERICOES, model.getRefeicoes());
-            values.put(Viagem.COLUNA_HOSPEDAGEM, model.getHospedagem());
-            values.put(Viagem.getColunaIdEntretenimento(),model.getId_entretenimento());
-            linhasAfetadas = db.insert(UsuarioModel.TABELA_NOME,null,values);
+            values.put(Viagem.COLUNA_TARIFA_AEREA, 0);
+            values.put(Viagem.COLUNA_REFERICOES, 0);
+            values.put(Viagem.COLUNA_HOSPEDAGEM, 0);
+            values.put(Viagem.COLUNA_ID_ENTRETENIMENTO,model.getId_entretenimento());
+            linhasAfetadas = db.insert(Viagem.TABELA_NOME,null,values);
 
         }finally {
             Close();

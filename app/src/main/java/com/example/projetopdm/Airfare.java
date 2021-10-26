@@ -25,9 +25,9 @@ public class Airfare extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.snack);
+        setContentView(R.layout.airfare);
 
-        Fuel fuel=new Fuel();
+        //Fuel fuel=new Fuel();
 
         CustoPessoa=findViewById(R.id.editCustoEstPess);
         AluguelVeic=findViewById(R.id.editAluguelVeic);
@@ -57,11 +57,7 @@ public class Airfare extends AppCompatActivity {
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Viagem model = new Viagem();
-                model = dao.Select();
-                setidViagem(model.getId());
-                model.setTarifa_aerea(Float.parseFloat(Valor_Total.getText().toString()));
-                dao.Update_Airfare(model);
+
             }
         });
 

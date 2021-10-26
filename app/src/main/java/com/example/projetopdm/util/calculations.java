@@ -7,7 +7,7 @@ public class calculations {
     public String custoCombustivel(float totalKM, float mediaKmL, float custoMedioL, int totalVeiculos) {
         total = ((totalKM / mediaKmL) * custoMedioL) / totalVeiculos;
 
-        return "R$ " + String.format("%.2f", total);
+        return String.format("%.2f", total);
     }
 
     public String custoTarifaAerea(float custoPorPessoa, int totalViajantes, float custoAluguelVeiculo) {
