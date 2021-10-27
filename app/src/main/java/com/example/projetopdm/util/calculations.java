@@ -13,7 +13,7 @@ public class calculations {
     public String custoTarifaAerea(float custoPorPessoa, int totalViajantes, float custoAluguelVeiculo) {
         total = (custoPorPessoa * totalViajantes) + custoAluguelVeiculo;
 
-        return "R$ " + String.format("%.2f", total);
+        return String.format("%.2f", total);
     }
 
     public String custoRefeicoes(int refeicoesPorDia, int totalViajantes, float custoEstimado, int duracaoDaViagem) {

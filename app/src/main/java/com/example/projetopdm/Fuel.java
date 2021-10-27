@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projetopdm.database.dao.UsuarioDAO;
 import com.example.projetopdm.database.dao.ViagemDAO;
@@ -31,7 +32,7 @@ public class Fuel extends AppCompatActivity {
     private calculations calculos;
     private UsuarioModel model;
     private SharedPreferences preferences;
-    private UsuarioDAO dao;
+    private ViagemDAO dao;
     private ViagemDAO daoViagem;
     private float valor_combustivel_total;
     private long id_user;
@@ -41,12 +42,9 @@ public class Fuel extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fuel);
-        dao = new UsuarioDAO(Fuel.this);
+        dao = new ViagemDAO(Fuel.this);
         preferences = PreferenceManager.getDefaultSharedPreferences(Fuel.this);
-        id_user= preferences.getLong("ID", id_user);
         Viagem viagemModel = new Viagem();
-
-        daoViagem= new ViagemDAO(Fuel.this);
 
         TotEstimadoKm = findViewById(R.id.TotEstimadoKm);
         MediaKmL = findViewById(R.id.MediaKmL);
@@ -83,8 +81,9 @@ public class Fuel extends AppCompatActivity {
             public void onClick(View view) {
                 //System.out.println(Float.parseFloat(valorTot));
                 viagemModel.setTotal_combustivel(Float.parseFloat(valorTot));
-                viagemModel.setIdusuario(id_user);
-                daoViagem.Insert(viagemModel);
+                /*if(dao.Update_Fuel(viagemModel,preferences.getLong("ID", id_user))!=-1){
+                    Toast.makeText(Fuel.this, "Valor Cadastrado!", Toast.LENGTH_SHORT).show();
+                }*/
             }
 
         });

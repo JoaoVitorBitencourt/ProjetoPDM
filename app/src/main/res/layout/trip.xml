@@ -47,10 +47,53 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="61dp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="@string/qtadePessoa"/>
+
+            <EditText
+                android:id="@+id/qtdadePessoas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:hint="Ex: 3"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="@string/diasViagem"/>
+
+            <EditText
+                android:id="@+id/diasviagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:hint="Ex: 3"/>
+
+            <Button
+                android:id="@+id/Salvar_Pessoas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Salvar"/>
 
             <Button
                 android:id="@+id/viagem"

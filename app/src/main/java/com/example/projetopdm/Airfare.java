@@ -1,10 +1,13 @@
 package com.example.projetopdm;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +22,10 @@ public class Airfare extends AppCompatActivity {
     private TextView Valor_Total;
     private Viagem viagem;
     private Button calcular, finalizar;
+    private SharedPreferences preferences;
     private ViagemDAO dao;
-    private long id_viagem;
+    private Float valor_tarifa;
+    private long id_user,viagem_id;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -32,11 +37,13 @@ public class Airfare extends AppCompatActivity {
         CustoPessoa=findViewById(R.id.editCustoEstPess);
         AluguelVeic=findViewById(R.id.editAluguelVeic);
         QtdadePessoas=findViewById(R.id.editqtadePessoas);
+        preferences = PreferenceManager.getDefaultSharedPreferences(Airfare.this);
         calcular = findViewById(R.id.calcular);
         finalizar = findViewById(R.id.finalizar);
         Valor_Total=findViewById(R.id.TextViewTotal);
         calculations calculos = new calculations();
         dao = new ViagemDAO(Airfare.this);
+        Viagem viagemModel = new Viagem();
 
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +55,9 @@ public class Airfare extends AppCompatActivity {
                         Integer.parseInt(QtdadePessoas.getText().toString()),
                         Float.parseFloat(AluguelVeic.getText().toString())
                 );
-                Valor_Total.setText(total);
+                valor_tarifa=Float.parseFloat(total);
+                Valor_Total.setText("R$ "+total);
+
             }
 
         });
@@ -57,18 +66,15 @@ public class Airfare extends AppCompatActivity {
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                viagemModel.setTarifa_aerea(valor_tarifa);
+                id_user = preferences.getLong("ID", id_user);
+                viagem_id=preferences.getLong("ID_VIAGEM",viagem_id);
+                if(dao.Update_Airfare(viagemModel, id_user,viagem_id)!=-1){
+                    Toast.makeText(Airfare.this, "Valor Cadastrado!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-    }
-
-    public void setidViagem(long id){
-        this.id_viagem=id;
-    }
-
-    public long getidViagem(){
-        return id_viagem;
     }
 
 }

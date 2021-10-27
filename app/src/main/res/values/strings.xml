@@ -16,6 +16,8 @@
     <string name="Cadastro">Cadastre-se</string>
     <string name="MensagemCadastro">Ainda não tem conta conosco? É simples de criar! Você só precisa inserir os seus dados abaixo.</string>
     <string name="Email">Email</string>
+    <string name="qtadePessoa">Quantidade de Pessoas</string>
+    <string name="diasViagem">Duração dos dias da viagem</string>
     <string name="Favoritos">Favoritos</string>
     <string name="Procurar">Procurar</string>
     <string name="Informacao">Informações</string>
