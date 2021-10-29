@@ -29,4 +29,5 @@
     <string name="refeicao">Refeições</string>
     <string name="hotel">Hospedagem</string>
     <string name="entretenimento">Entretenimento/Diversos</string>
+    <string name="dadoInvalido">Tipo de dado inválido!</string>
 </resources>

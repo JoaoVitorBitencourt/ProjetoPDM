@@ -44,6 +44,7 @@ public class Registration extends AppCompatActivity {
                 }else{
                     if(dao.Insert(model)!=-1){
                         Toast.makeText(Registration.this, "Usuário Cadastrado", Toast.LENGTH_LONG).show();
+                        Registration.super.onBackPressed();
                     }
                 }
             }

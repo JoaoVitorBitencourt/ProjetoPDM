@@ -35,11 +35,7 @@ public class Trip extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(Trip.this);
         viajantes= new Viajantes();
 
-        teste = findViewById(R.id.viagem);
         salvar_pessoas= findViewById(R.id.Salvar_Pessoas);
-        fuel = findViewById(R.id.fuel);
-        qtPessoas= findViewById(R.id.qtdadePessoas);
-        diasviagem= findViewById(R.id.diasviagem);
         snack = findViewById(R.id.snack);
         entretenimento = findViewById(R.id.entretenimento);
         dao= new ViagemDAO(Trip.this);

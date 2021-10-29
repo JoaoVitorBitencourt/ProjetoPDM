@@ -32,8 +32,6 @@ public class Airfare extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.airfare);
 
-        //Fuel fuel=new Fuel();
-
         CustoPessoa=findViewById(R.id.editCustoEstPess);
         AluguelVeic=findViewById(R.id.editAluguelVeic);
         QtdadePessoas=findViewById(R.id.editqtadePessoas);
@@ -71,6 +69,7 @@ public class Airfare extends AppCompatActivity {
                 viagem_id=preferences.getLong("ID_VIAGEM",viagem_id);
                 if(dao.Update_Airfare(viagemModel, id_user,viagem_id)!=-1){
                     Toast.makeText(Airfare.this, "Valor Cadastrado!", Toast.LENGTH_SHORT).show();
+                    Airfare.super.onBackPressed();
                 }
             }
         });
