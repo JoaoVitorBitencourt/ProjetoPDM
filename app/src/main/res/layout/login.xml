@@ -30,7 +30,7 @@
         android:text="@string/MensagemLogin"
         android:layout_marginLeft="20dp"
         android:textSize="16dp"
-        android:textColor="@color/auxiliary"/>
+        android:background="@color/background"/>
 
     <EditText
         android:id="@+id/editNomeUsuario"
@@ -60,7 +60,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="20dp"
         android:layout_gravity="center"
-        android:text="@string/btn_entrar" />
+        android:text="@string/btn_entrar"
+        android:textColor="@color/white"
+        android:background="@color/primary"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

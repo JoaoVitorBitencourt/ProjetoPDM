@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -14,27 +15,42 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetopdm.database.dao.ViagemDAO;
 import com.example.projetopdm.database.model.Viagem;
+import com.example.projetopdm.util.Shared;
 import com.example.projetopdm.util.Viajantes;
 
 public class Trip extends AppCompatActivity {
 
-    private Button teste,fuel,snack,entretenimento,accommodation,salvar_pessoas;
-    private EditText qtPessoas,diasviagem;
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
-    private int qtdadePessoas,dias_viagem;
+    private Button teste,fuel,snack,entretenimento,accommodation,salvar_pessoas, adicionarCustoCombustivel;
+    private TextView qtdadePessoas,duracaoViagem, custoCombustivelText;
+    private int qtdePessoas,dias_viagem;
     private long id_user,viagem_id;
     private Viajantes viajantes;
     private ViagemDAO dao;
     Viagem viagemModel=new Viagem();
+    private Shared shared = new Shared(Trip.this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trip);
-        preferences = PreferenceManager.getDefaultSharedPreferences(Trip.this);
         viajantes= new Viajantes();
 
+        qtdadePessoas = findViewById(R.id.qtdadePessoas);
+        duracaoViagem = findViewById(R.id.duracaoViagem);
+        custoCombustivelText = findViewById(R.id.custoCombustivelText);
+        adicionarCustoCombustivel = findViewById(R.id.AdicionarCustoCombustivel);
+
+        qtdadePessoas.setText(shared.getString("qtdePessoas"));
+        duracaoViagem.setText(shared.getString("qtdeDias"));
+        custoCombustivelText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoCombustivel")) == null ? 0.00f : shared.getFloat("TotalCustoCombustivel")* 100) /100);
+
+        adicionarCustoCombustivel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Trip.this, Fuel.class));
+            }
+        });
+        /*
         salvar_pessoas= findViewById(R.id.Salvar_Pessoas);
         snack = findViewById(R.id.snack);
         entretenimento = findViewById(R.id.entretenimento);
@@ -119,5 +135,6 @@ public class Trip extends AppCompatActivity {
                 }
             }
         });
+         */
     }
 }

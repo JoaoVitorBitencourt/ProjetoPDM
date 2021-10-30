@@ -30,6 +30,8 @@
         <activity android:name=".Snack"/>
         <activity android:name=".Accommodation"/>
         <activity android:name=".Entretenimento"/>
+        <activity android:name=".InitialInformation"/>
+        <activity android:name=".CardInfo"/>
     </application>
 
 </manifest>

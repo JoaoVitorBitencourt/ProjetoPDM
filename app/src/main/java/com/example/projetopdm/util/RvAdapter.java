@@ -1,5 +1,6 @@
 package com.example.projetopdm.util;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetopdm.CardInfo;
 import com.example.projetopdm.R;
+import com.example.projetopdm.Splash;
+import com.example.projetopdm.Trip;
+import com.example.projetopdm.Trips;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.PersonViewHolder> {
     List<ViagemCard> viagens;
+    Shared shared;
 
     public RvAdapter(List<ViagemCard> viagem) {
         this.viagens = viagem;
@@ -55,6 +61,12 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.PersonViewHolder> 
             Titulo = (TextView) itemView.findViewById(R.id.tituloCard);
             data = (TextView) itemView.findViewById(R.id.dataCard);
             valor_total = (TextView) itemView.findViewById(R.id.totalViagem);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemView.getContext().startActivity(new Intent(itemView.getContext(), CardInfo.class));
+                }
+            });
         }
     }
 }

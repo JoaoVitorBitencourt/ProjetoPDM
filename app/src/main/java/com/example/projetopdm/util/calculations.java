@@ -4,27 +4,27 @@ public class calculations {
 
     private float total;
 
-    public String custoCombustivel(float totalKM, float mediaKmL, float custoMedioL, int totalVeiculos) {
+    public float custoCombustivel(float totalKM, float mediaKmL, float custoMedioL, int totalVeiculos) {
         total = ((totalKM / mediaKmL) * custoMedioL) / totalVeiculos;
 
-        return String.format("%.2f", total);
+        return total;
     }
 
-    public String custoTarifaAerea(float custoPorPessoa, int totalViajantes, float custoAluguelVeiculo) {
+    public float custoTarifaAerea(float custoPorPessoa, int totalViajantes, float custoAluguelVeiculo) {
         total = (custoPorPessoa * totalViajantes) + custoAluguelVeiculo;
 
-        return String.format("%.2f", total);
+        return total;
     }
 
-    public String custoRefeicoes(int refeicoesPorDia, int totalViajantes, float custoEstimado, int duracaoDaViagem) {
+    public float custoRefeicoes(int refeicoesPorDia, int totalViajantes, float custoEstimado, int duracaoDaViagem) {
         total = ((refeicoesPorDia * totalViajantes) * custoEstimado) * duracaoDaViagem;
 
-        return "R$ " + String.format("%.2f", total);
+        return total;
     }
 
-    public String custoHospedagem(float custoMedio, int totalNoites, int totalQuartos) {
+    public float custoHospedagem(float custoMedio, int totalNoites, int totalQuartos) {
         total = (custoMedio * totalNoites) * totalQuartos;
 
-        return "R$ " + String.format("%.2f", total);
+        return total;
     }
 }

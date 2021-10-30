@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:foregroundGravity="fill">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center|top"
+        android:background="@color/primary">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:padding="4dp"
+            android:columnCount="10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_columnWeight="1"
+                android:src="@drawable/menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="9"
+                android:text="@string/MinhasViagens"
+                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                />
+        </GridLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="Informações Iniciais"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:background="@color/background"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="Antes de adicionar sua viagem precisamos de algumas informações iniciais!"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="Qual o número de pessoas?"/>
+
+        <EditText
+            android:id="@+id/qtdePessoas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Ex: 5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="Por quantos dias prentedem viajar?"/>
+
+        <EditText
+            android:id="@+id/qtdeDias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Ex: 5"/>
+
+        <Button
+            android:id="@+id/btnSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:text="Salvar"
+            android:textColor="@color/white"
+            android:background="@color/primary"/>
+
+    </LinearLayout>
+
+</FrameLayout>

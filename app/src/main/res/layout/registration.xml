@@ -30,7 +30,7 @@
         android:text="@string/MensagemCadastro"
         android:layout_marginLeft="20dp"
         android:textSize="16dp"
-        android:textColor="@color/auxiliary"/>
+        android:background="@color/background"/>
 
     <EditText
         android:id="@+id/editEmail"
@@ -70,7 +70,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="20dp"
         android:layout_gravity="center"
-        android:text="@string/btn_cadastro" />
+        android:text="@string/btn_cadastro"
+        android:textColor="@color/white"
+        android:background="@color/primary" />
 
 
 </LinearLayout>

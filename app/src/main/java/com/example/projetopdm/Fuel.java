@@ -17,6 +17,7 @@ import com.example.projetopdm.database.dao.UsuarioDAO;
 import com.example.projetopdm.database.dao.ViagemDAO;
 import com.example.projetopdm.database.model.UsuarioModel;
 import com.example.projetopdm.database.model.Viagem;
+import com.example.projetopdm.util.Shared;
 import com.example.projetopdm.util.calculations;
 
 import androidx.annotation.Nullable;
@@ -31,11 +32,11 @@ public class Fuel extends AppCompatActivity {
     private Button calcular, finalizar;
     private calculations calculos;
     private UsuarioModel model;
-    private SharedPreferences preferences;
     private ViagemDAO dao;
     private ViagemDAO daoViagem;
     private float valor_combustivel_total;
     private long id_user;
+    private Shared shared = new Shared(Fuel.this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +44,6 @@ public class Fuel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fuel);
         dao = new ViagemDAO(Fuel.this);
-        preferences = PreferenceManager.getDefaultSharedPreferences(Fuel.this);
         Viagem viagemModel = new Viagem();
 
         TotEstimadoKm = findViewById(R.id.TotEstimadoKm);
@@ -63,15 +63,15 @@ public class Fuel extends AppCompatActivity {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String total;
+                float total;
 
                 total = calculos.custoCombustivel(Float.parseFloat(TotEstimadoKm.getText().toString()),
                                                   Float.parseFloat(MediaKmL.getText().toString()),
                                                   Float.parseFloat(CustoMedioL.getText().toString()),
                                                   Integer.parseInt(TotalVeiculos.getText().toString()));
 
-                ValorTotal.setText(total);
-                valorTot=total;
+                ValorTotal.setText("R$" + total);
+                valorTot=Float.toString(total);
             }
 
         });
@@ -79,11 +79,15 @@ public class Fuel extends AppCompatActivity {
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //System.out.println(Float.parseFloat(valorTot));
-                viagemModel.setTotal_combustivel(Float.parseFloat(valorTot));
-                /*if(dao.Update_Fuel(viagemModel,preferences.getLong("ID", id_user))!=-1){
-                    Toast.makeText(Fuel.this, "Valor Cadastrado!", Toast.LENGTH_SHORT).show();
-                }*/
+                float total;
+
+                total = calculos.custoCombustivel(Float.parseFloat(TotEstimadoKm.getText().toString()),
+                        Float.parseFloat(MediaKmL.getText().toString()),
+                        Float.parseFloat(CustoMedioL.getText().toString()),
+                        Integer.parseInt(TotalVeiculos.getText().toString()));
+
+                shared.put("TotalCustoCombustivel", total);
+                startActivity(new Intent(Fuel.this, Trip.class));
             }
 
         });

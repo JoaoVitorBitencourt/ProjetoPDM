@@ -74,7 +74,8 @@
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="6dp"
                 android:text="teste"
-                android:linksClickable="true"/>
+                android:linksClickable="true"
+                android:textColor="@color/purple_500"/>
 
         </LinearLayout>
 

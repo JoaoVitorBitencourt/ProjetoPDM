@@ -2,10 +2,12 @@ package com.example.projetopdm.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.example.projetopdm.R;
+import com.example.projetopdm.Trip;
 
 public class Shared {
 
@@ -41,5 +43,8 @@ public class Shared {
     }
     public static final boolean getBoolean(final String key) {
         return PreferenceManager.getDefaultSharedPreferences(activity).getBoolean(key, false);
+    }
+    public static final float getFloat(final String key) {
+        return PreferenceManager.getDefaultSharedPreferences(activity).getFloat(key, 0.00f);
     }
 }

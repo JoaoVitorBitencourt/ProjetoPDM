@@ -46,14 +46,14 @@ public class Airfare extends AppCompatActivity {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String total;
+                float total;
 
                 total = calculos.custoTarifaAerea(
                         Float.parseFloat(CustoPessoa.getText().toString()),
                         Integer.parseInt(QtdadePessoas.getText().toString()),
                         Float.parseFloat(AluguelVeic.getText().toString())
                 );
-                valor_tarifa=Float.parseFloat(total);
+                valor_tarifa=total;
                 Valor_Total.setText("R$ "+total);
 
             }

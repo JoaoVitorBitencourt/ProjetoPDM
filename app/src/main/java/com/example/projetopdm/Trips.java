@@ -32,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetopdm.R;
 import com.example.projetopdm.Trips;
+import com.example.projetopdm.util.Shared;
 import com.example.projetopdm.util.ViagemCard;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class Trips extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trips);
 
-        Intent viagem = new Intent(Trips.this, Trip.class);
+        Intent configInicial = new Intent(Trips.this, InitialInformation.class);
         RecyclerView rv = findViewById(R.id.recycler_view);
         LinearLayoutManager llm = new LinearLayoutManager(this);
 
@@ -64,7 +65,7 @@ public class Trips extends AppCompatActivity {
         adicionarViagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(viagem);
+                startActivity(configInicial);
             }
         });
 
