@@ -140,21 +140,6 @@
             android:layout_marginHorizontal="30dp"
             android:hint="Ex: 1"/>
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:switchMinWidth="56dp"
-            android:gravity="left"
-            android:layout_marginTop="20dp"
-            android:text="Adicionar a viagem?"
-            android:textSize="15dp"
-            android:paddingHorizontal="10dp"
-            android:checked="true"
-            android:textOff="OFF"
-            android:textOn="ON"
-            android:layout_columnWeight="1"/>
-
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -189,13 +174,23 @@
             android:id="@+id/calcular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="calcular"/>
+            android:text="calcular"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
 
         <Button
             android:id="@+id/finalizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="finalizar"/>
+            android:text="finalizar"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 

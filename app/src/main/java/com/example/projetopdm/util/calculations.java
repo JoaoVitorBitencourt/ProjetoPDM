@@ -1,6 +1,6 @@
 package com.example.projetopdm.util;
 
-public class calculations {
+public class Calculations {
 
     private float total;
 

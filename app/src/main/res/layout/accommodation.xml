@@ -79,6 +79,7 @@
             android:text="Custo médio (por noite)"/>
 
         <EditText
+            android:id="@+id/custoMedioPorNoite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -96,6 +97,7 @@
             android:text="Total de noites"/>
 
         <EditText
+            android:id="@+id/totalNoites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
@@ -113,26 +115,12 @@
             android:text="Total de quartos"/>
 
         <EditText
+            android:id="@+id/totalQuartos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
             android:hint="Ex: 1"/>
-
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:switchMinWidth="56dp"
-            android:gravity="left"
-            android:layout_marginTop="20dp"
-            android:text="Adicionar a viagem?"
-            android:textSize="15dp"
-            android:paddingHorizontal="10dp"
-            android:checked="true"
-            android:textOff="OFF"
-            android:textOn="ON"
-            android:layout_columnWeight="1"/>
 
         <GridLayout
             android:layout_width="match_parent"
@@ -153,6 +141,7 @@
                 android:text="Total"/>
 
             <TextView
+                android:id="@+id/valorTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="right"
@@ -162,6 +151,28 @@
                 android:text="R$ 00,00"
                 android:layout_columnWeight="1"/>
         </GridLayout>
+
+        <Button
+            android:id="@+id/calcular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="calcular"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
+
+        <Button
+            android:id="@+id/finalizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="finalizar"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 
