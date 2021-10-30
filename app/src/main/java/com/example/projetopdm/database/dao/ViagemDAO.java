@@ -13,6 +13,9 @@ import com.example.projetopdm.database.DBOpenHelper;
 import com.example.projetopdm.database.model.UsuarioModel;
 import com.example.projetopdm.database.model.Viagem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ViagemDAO extends AbstrataDAO{
 
 
@@ -57,55 +60,9 @@ public class ViagemDAO extends AbstrataDAO{
     }
 
 
-    public long Insert_id(Viagem model){
+    public List<Viagem> Select(long id_user){
 
-        long linhasAfetadas;
-
-        try{
-            Open();
-            ContentValues values = new ContentValues();
-            values.put(Viagem.COLUNA_IDUSUARIO, model.getIdusuario());
-            linhasAfetadas = db.insert(UsuarioModel.TABELA_NOME,null,values);
-
-        }finally {
-            Close();
-        }
-
-        return linhasAfetadas;
-    }
-
-    /*public long Update_Fuel(Viagem model,  long id) {
-
-
-        long linhasAfetadas;
-        try {
-            Open();
-            ContentValues values = new ContentValues();
-            values.put(Viagem.COLUNA_VALORTOTAL_COMBUSTIVEL, model.getTarifa_aerea());
-            linhasAfetadas=db.update(Viagem.TABELA_NOME,values,Viagem.getColunaId() + " = ?",new String[]{String.valueOf(id)});
-        }finally {
-            Close();
-        }
-        return linhasAfetadas;
-    }*/
-
-    public long Update_Airfare(Viagem model , long id_usuario, long id_viagem){
-
-
-        long linhasAfetadas;
-        try {
-            Open();
-            ContentValues values = new ContentValues();
-            values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
-            linhasAfetadas=db.update(Viagem.TABELA_NOME,values,Viagem.getColunaId() + " = ? and " +Viagem.getColunaId() + " = ? ",
-                    new String[]{String.valueOf(id_usuario),String.valueOf(id_viagem)});
-        }finally {
-            Close();
-        }
-       return linhasAfetadas;
-    }
-
-    public Viagem Select_idViagem(long id){
+        List<Viagem> lista= new ArrayList<>();
 
         Viagem model = null;
         try{
@@ -113,33 +70,7 @@ public class ViagemDAO extends AbstrataDAO{
             Cursor cursor = db.query(
                     Viagem.TABELA_NOME,
                     colunas,
-                    Viagem.COLUNA_IDUSUARIO + " = ? and " + Viagem.COLUNA_HOSPEDAGEM + " = ? and " + Viagem.COLUNA_REFERICOES + " = ? "+
-                    Viagem.COLUNA_TARIFA_AEREA + " = ? " + Viagem.COLUNA_VALORTOTAL_COMBUSTIVEL + " = ?",
-                new String[]{String.valueOf(id),"0","0","0","0"},
-                    null,
-                    null,
-                    null);
-
-            cursor.moveToFirst();
-            while(!cursor.isAfterLast()){
-                model= CursorToStructure(cursor);
-                break;
-            }
-        }finally {
-            Close();
-        }
-        return model;
-    }
-
-    public Viagem Select(){
-
-        Viagem model = null;
-        try{
-            Open();
-            Cursor cursor = db.query(
-                    Viagem.TABELA_NOME,
-                    colunas,
-                    null,
+                    Viagem.COLUNA_IDUSUARIO + " = ?",new String[]{Long.toString(id_user)},
                     null,
                     null,
                     null,
@@ -147,13 +78,13 @@ public class ViagemDAO extends AbstrataDAO{
 
             cursor.moveToFirst();
             while(!cursor.isAfterLast()){
-                model= CursorToStructure(cursor);
-                break;
+                lista.add(CursorToStructure(cursor));
+                cursor.moveToNext();
             }
         }finally {
             Close();
         }
-        return model;
+        return lista;
     }
 
 
