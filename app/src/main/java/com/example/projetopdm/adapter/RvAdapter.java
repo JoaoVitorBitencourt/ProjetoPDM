@@ -1,4 +1,4 @@
-package com.example.projetopdm.util;
+package com.example.projetopdm.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,6 +15,8 @@ import com.example.projetopdm.R;
 import com.example.projetopdm.Splash;
 import com.example.projetopdm.Trip;
 import com.example.projetopdm.Trips;
+import com.example.projetopdm.util.Shared;
+import com.example.projetopdm.util.ViagemCard;
 
 import java.util.ArrayList;
 import java.util.List;

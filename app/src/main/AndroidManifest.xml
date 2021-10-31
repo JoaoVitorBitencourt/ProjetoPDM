@@ -29,7 +29,7 @@
         <activity android:name=".Airfare"/>
         <activity android:name=".Snack"/>
         <activity android:name=".Accommodation"/>
-        <activity android:name=".Entretenimento"/>
+        <activity android:name=".Entertainment"/>
         <activity android:name=".InitialInformation"/>
         <activity android:name=".CardInfo"/>
     </application>

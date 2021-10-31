@@ -2,12 +2,12 @@ package com.example.projetopdm.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.example.projetopdm.R;
-import com.example.projetopdm.Trip;
+
+import java.util.Set;
 
 public class Shared {
 
@@ -31,6 +31,8 @@ public class Shared {
             editor.putLong(key, (Long) value);
         } else if (value instanceof Float) {
             editor.putFloat(key, (Float) value);
+        } else if (value instanceof Set) {
+            editor.putStringSet(key, (Set<String>) value);
         } else {
             Toast.makeText(activity, R.string.dadoInvalido, Toast.LENGTH_LONG).show();
         }
@@ -46,5 +48,8 @@ public class Shared {
     }
     public static final float getFloat(final String key) {
         return PreferenceManager.getDefaultSharedPreferences(activity).getFloat(key, 0.00f);
+    }
+    public static final Set getStringSet(final String key) {
+        return PreferenceManager.getDefaultSharedPreferences(activity).getStringSet(key, null);
     }
 }

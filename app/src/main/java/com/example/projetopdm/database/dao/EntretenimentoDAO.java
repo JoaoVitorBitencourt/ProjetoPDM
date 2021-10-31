@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 
 import com.example.projetopdm.database.DBOpenHelper;
-import com.example.projetopdm.database.model.Entretenimento;
+import com.example.projetopdm.database.model.EntretenimentoModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,27 +14,27 @@ public class EntretenimentoDAO extends AbstrataDAO{
 
     private final String[]
             colunas = {
-                Entretenimento.COLUNA_ID,
-                Entretenimento.COLUNA_IDVIAGEM,
-                Entretenimento.COLUNA_NOME,
-                Entretenimento.COLUNA_VALORTOTAL
+                EntretenimentoModel.COLUNA_ID,
+                EntretenimentoModel.COLUNA_IDVIAGEM,
+                EntretenimentoModel.COLUNA_NOME,
+                EntretenimentoModel.COLUNA_VALORTOTAL
             };
 
     public EntretenimentoDAO(final Context contexto){
         db_helper = new DBOpenHelper(contexto);
     }
 
-    public long Insert(Entretenimento model){
+    public long Insert(EntretenimentoModel model){
 
         long linhasAfetadas;
 
         try{
             Open();
             ContentValues values = new ContentValues();
-            values.put(Entretenimento.COLUNA_IDVIAGEM, model.getIdviagem());
-            values.put(Entretenimento.COLUNA_NOME, model.getNome());
-            values.put(Entretenimento.COLUNA_VALORTOTAL, model.getValor_total());
-            linhasAfetadas = db.insert(Entretenimento.TABELA_NOME,null,values);
+            values.put(EntretenimentoModel.COLUNA_IDVIAGEM, model.getIdviagem());
+            values.put(EntretenimentoModel.COLUNA_NOME, model.getNome());
+            values.put(EntretenimentoModel.COLUNA_VALORTOTAL, model.getValor_total());
+            linhasAfetadas = db.insert(EntretenimentoModel.TABELA_NOME,null,values);
         }finally {
             Close();
         }
@@ -51,17 +51,17 @@ public class EntretenimentoDAO extends AbstrataDAO{
     }
 
     // select all, traz todos os entretenimentos.
-    public List<Entretenimento> Select(final String id_viagem){
+    public List<EntretenimentoModel> Select(final long id_viagem){
 
-        List<Entretenimento> lista= new ArrayList<Entretenimento>();
+        List<EntretenimentoModel> lista= new ArrayList<EntretenimentoModel>();
 
         try{
             Open();
             Cursor cursor = db.query(
-                    Entretenimento.TABELA_NOME,
+                    EntretenimentoModel.TABELA_NOME,
                     colunas,
-                    Entretenimento.COLUNA_IDVIAGEM + " = ? ",
-                    new String[]{id_viagem},
+                    EntretenimentoModel.COLUNA_IDVIAGEM + " = ? ",
+                    new String[]{Long.toString(id_viagem)},
                     null,
                     null,
                     null,
@@ -79,8 +79,8 @@ public class EntretenimentoDAO extends AbstrataDAO{
         return null;
     }
 
-    public final Entretenimento CursorToStructure(Cursor cursor){
-        Entretenimento model=new Entretenimento();
+    public final EntretenimentoModel CursorToStructure(Cursor cursor){
+        EntretenimentoModel model=new EntretenimentoModel();
         model.setId(cursor.getLong(0));
         model.setIdviagem(cursor.getLong(0));
         model.setNome(cursor.getString(1));

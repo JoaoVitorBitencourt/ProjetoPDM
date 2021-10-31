@@ -1,6 +1,6 @@
 package com.example.projetopdm.database.model;
 
-public class Entretenimento {
+public class EntretenimentoModel {
     public static final String
             TABELA_NOME="tb_entretenimento";
 

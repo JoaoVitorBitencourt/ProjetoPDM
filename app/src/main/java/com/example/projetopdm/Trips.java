@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetopdm.database.model.Viagem;
-import com.example.projetopdm.util.RvAdapter;
+import com.example.projetopdm.adapter.RvAdapter;
 
 import java.util.ArrayList;
 import java.util.Date;

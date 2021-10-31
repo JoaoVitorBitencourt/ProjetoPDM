@@ -76,15 +76,15 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:text="Nome
-"/>
+            android:text="Nome"/>
 
         <EditText
+            android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="Ex: R$ 15,00"/>
+            android:hint="Ex: Mirante"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -97,55 +97,34 @@
             android:text="Valor"/>
 
         <EditText
+            android:id="@+id/valor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="Ex: 4"/>
+            android:hint="Ex: 20.00"/>
 
-        <Switch
-            android:id="@+id/switch1"
+        <Button
+            android:id="@+id/adicionar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:switchMinWidth="56dp"
-            android:gravity="left"
-            android:layout_marginTop="20dp"
-            android:text="Adicionar a viagem?"
-            android:textSize="15dp"
-            android:paddingHorizontal="10dp"
-            android:checked="true"
-            android:textOff="OFF"
-            android:textOn="ON"
-            android:layout_columnWeight="1"/>
+            android:text="Adicionar"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
 
-        <GridLayout
+        <Button
+            android:id="@+id/finalizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:columnCount="2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_columnWeight="1"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:gravity="left"
-                android:textColor="@color/secondary"
-                android:text="Total"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="R$ 00,00"
-                android:layout_columnWeight="1"/>
-        </GridLayout>
+            android:text="finalizar"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/primary"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 
