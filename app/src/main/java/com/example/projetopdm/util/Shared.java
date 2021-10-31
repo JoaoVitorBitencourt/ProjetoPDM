@@ -52,4 +52,7 @@ public class Shared {
     public static final Set getStringSet(final String key) {
         return PreferenceManager.getDefaultSharedPreferences(activity).getStringSet(key, null);
     }
+    public static final long getLong(final String key) {
+        return PreferenceManager.getDefaultSharedPreferences(activity).getLong(key,0);
+    }
 }

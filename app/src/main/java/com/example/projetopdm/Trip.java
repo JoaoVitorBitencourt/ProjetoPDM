@@ -38,7 +38,10 @@ public class Trip extends AppCompatActivity {
     private Shared shared = new Shared(Trip.this);
     public int teste;
     private ListView listaEntretenimento;
+    private float Total_Airfare,Total_Accommodation, Total_Fuel, Total_Snack, Total_Valor_Viagem;
+    private long id_user;
     private LayoutInflater layoutInflater;
+    private ViagemDAO dao;
     private Set<Entretenimento> set;
     private List<String> listaNomes;
 
@@ -82,6 +85,8 @@ public class Trip extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trip);
+
+        dao=new ViagemDAO(Trip.this);
 
         qtdadePessoas = findViewById(R.id.qtdadePessoas);
         duracaoViagem = findViewById(R.id.duracaoViagem);
@@ -135,8 +140,35 @@ public class Trip extends AppCompatActivity {
         salvarViagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Viagem model= new Viagem();
+                model=getViagemModel();
+                if(dao.Insert(model)!=-1){
+                    Toast.makeText(Trip.this, "Viagem cadastrada", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(Trip.this, "Erro ao cadastrar viagem!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
+
+
+    }
+    private final Viagem getViagemModel(){
+        Viagem viagem= new Viagem();
+        Total_Airfare=(shared.getFloat("TotalCustoViagemAerea"));
+        Total_Fuel=(shared.getFloat("TotalCustoCombustivel"));
+        Total_Snack=(shared.getFloat("TotalCustoRefeicoes"));
+        Total_Accommodation=(shared.getFloat("TotalCustoHospedagem"));
+        Total_Valor_Viagem=0;
+        id_user=(shared.getLong("ID"));
+
+        viagem.setIdusuario(id_user);
+        viagem.setTarifa_aerea(Total_Airfare);
+        viagem.setRefeicoes(Total_Snack);
+        viagem.setTotal_combustivel(Total_Fuel);
+        viagem.setHospedagem(Total_Accommodation);
+        viagem.setValor_total(Total_Valor_Viagem);
+        viagem.setId_entretenimento(-1);
+        return viagem;
     }
 }
