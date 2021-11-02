@@ -12,7 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetopdm.adapter.EntretenimentoAdapter;
+import com.example.projetopdm.database.dao.EntretenimentoDAO;
 import com.example.projetopdm.database.dao.ViagemDAO;
+import com.example.projetopdm.database.model.EntretenimentoModel;
 import com.example.projetopdm.database.model.Viagem;
 import com.example.projetopdm.util.Entretenimento;
 import com.example.projetopdm.util.Shared;
@@ -31,8 +33,11 @@ public class Trip extends AppCompatActivity {
     public int returnActivity, qtdeDias, qtdePessoas;
     private ListView listaEntretenimento;
     private float Total_Airfare,Total_Accommodation, Total_Fuel, Total_Snack, Total_Valor_Viagem;
-    private long id_user;
+    private long id_user,id_viagem;
     private ViagemDAO dao;
+    private List<Viagem> model_viagem;
+    private EntretenimentoDAO E_dao;
+    private List<Entretenimento> Lista = new ArrayList<Entretenimento>();
     private Set<String> set;
     private List<Entretenimento> listaModel = new ArrayList<Entretenimento>();
     Gson gson = new Gson();
@@ -81,6 +86,11 @@ public class Trip extends AppCompatActivity {
         setContentView(R.layout.trip);
 
         dao=new ViagemDAO(Trip.this);
+        E_dao= new EntretenimentoDAO(Trip.this);
+
+        Viagem model_id = new Viagem();
+        EntretenimentoModel Ent_model = new EntretenimentoModel();
+
 
         qtdadePessoas = findViewById(R.id.qtdadePessoas);
         duracaoViagem = findViewById(R.id.duracaoViagem);
@@ -137,6 +147,17 @@ public class Trip extends AppCompatActivity {
                 Viagem model= new Viagem();
                 model=getViagemModel();
                 if(dao.Insert(model)!=-1){
+
+                    model_viagem = dao.Select(model.getIdusuario());
+                    id_viagem = model_viagem.size()-1;
+
+                    //-pegar a lista no shared e passar pro laço de repetição.
+
+                    /*for(Entretenimento uri : Lista) {
+                        Ent_model = set_Entretenimento(id_viagem);
+                        E_dao.Insert(Ent_model);
+                    }*/
+
                     Toast.makeText(Trip.this, "Viagem cadastrada", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(Trip.this, "Erro ao cadastrar viagem!", Toast.LENGTH_SHORT).show();
@@ -146,6 +167,23 @@ public class Trip extends AppCompatActivity {
 
 
     }
+
+
+    private final Entretenimento getEntretenimentoModel(){
+        Entretenimento entretenimento = new Entretenimento();
+       // entretenimento.setNome();
+        //entretenimento.setValor();
+        return entretenimento;
+    }
+
+    private final EntretenimentoModel set_Entretenimento(Entretenimento model, long id_viagem){
+        EntretenimentoModel ent_model= new EntretenimentoModel();
+        ent_model.setNome(model.getNome());
+        ent_model.setValor_total(Float.parseFloat(model.getValor()));
+        ent_model.setIdviagem(id_viagem);
+        return ent_model;
+    }
+
     private final Viagem getViagemModel(){
         for(Entretenimento model : listaModel){
             totalEntretenimento += Float.parseFloat(model.getValor());
