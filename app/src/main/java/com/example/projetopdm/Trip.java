@@ -17,8 +17,6 @@ import com.example.projetopdm.database.model.Viagem;
 import com.example.projetopdm.util.Entretenimento;
 import com.example.projetopdm.util.Shared;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -38,9 +36,6 @@ public class Trip extends AppCompatActivity {
     private Set<String> set;
     private List<Entretenimento> listaModel = new ArrayList<Entretenimento>();
     Gson gson = new Gson();
-    JsonParser parser = new JsonParser();
-    Entretenimento modelAux;
-    JsonObject jo;
     List<String> list;
     private float totalEntretenimento = 0.00f;
 
@@ -63,10 +58,9 @@ public class Trip extends AppCompatActivity {
             list = new ArrayList<String>(set);
 
             //for(int i = 0; i < list.size(); i++) {
-            for(String row : list) {
-                jo = (JsonObject) parser.parse(row);
-                modelAux = gson.fromJson(jo, Entretenimento.class);
-                listaModel.add(modelAux);
+            for(String entretenimentoJson : list) {
+                Entretenimento entretenimento = gson.fromJson(entretenimentoJson, Entretenimento.class);
+                listaModel.add(entretenimento);
             }
 
             listaEntretenimento.setAdapter(new EntretenimentoAdapter(this, listaModel));
