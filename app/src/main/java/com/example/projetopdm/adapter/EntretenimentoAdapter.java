@@ -7,20 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.projetopdm.R;
 import com.example.projetopdm.database.model.EntretenimentoModel;
+import com.example.projetopdm.util.Entretenimento;
 
 import java.util.List;
 
 public class EntretenimentoAdapter extends BaseAdapter {
 
     private Activity activity;
-    private List<EntretenimentoModel> listaEntretenimento;
+    private List<EntretenimentoModel> listaEntretenimentoModel;
     private LayoutInflater layoutInflater;
+    private List<Entretenimento> listaEntretenimento;
 
-    public EntretenimentoAdapter(Activity context, List<EntretenimentoModel> lista) {
+    public EntretenimentoAdapter(Activity context, List<Entretenimento> lista) {
         this.activity = context;
+        //this.listaEntretenimentoModel = lista;
         this.listaEntretenimento = lista;
     }
 
@@ -47,8 +51,9 @@ public class EntretenimentoAdapter extends BaseAdapter {
         }
 
         View rootView = layoutInflater.inflate(R.layout.entertainment_row, null);
-        EditText nome = rootView.findViewById(R.id.nome);
+        TextView nome = rootView.findViewById(R.id.nome);
+        nome.setText(listaEntretenimento.get(i).getNome());
 
-        return null;
+        return rootView;
     }
 }
