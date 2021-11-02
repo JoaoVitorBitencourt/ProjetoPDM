@@ -40,7 +40,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.PersonViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull PersonViewHolder holder, int i) {
         holder.Titulo.setText(viagens.get(i).getNome());
-        holder.data.setText(Long.toString(viagens.get(i).getQtde_dias()));
+        holder.data.setText(Integer.toString(viagens.get(i).getQtde_dias()));
         holder.valor_total.setText(Float.toString(viagens.get(i).getTotal_viagem()));
     }
 

@@ -12,8 +12,7 @@ public class Viagem {
             COLUNA_TARIFA_AEREA="valor_tarifa",
             COLUNA_REFERICOES="valor_refeicoes",
             COLUNA_HOSPEDAGEM="valor_hospedagem",
-            COLUNA_QTDEDIAS="qtde_dias",
-            COLUNA_QTDEPESSOAS="qtde_pessoas"
+            COLUNA_ID_ENTRETENIMENTO="_id";
             ;
 
     public static final String
@@ -27,8 +26,7 @@ public class Viagem {
                     +   COLUNA_TARIFA_AEREA + " float not null, "
                     +   COLUNA_REFERICOES + " refeicoes float not null, "
                     +   COLUNA_HOSPEDAGEM + " hospedagem float not null, "
-                    +   COLUNA_QTDEDIAS + " integer not null, "
-                    +   COLUNA_QTDEPESSOAS + " integer not null );";
+                    +   COLUNA_ID_ENTRETENIMENTO + " id_entretenimento int);";
 
     public static final String
             DROP_TABLE = " drop table if exists " + TABELA_NOME;
@@ -41,8 +39,6 @@ public class Viagem {
     private float refeicoes;
     private float hospedagem;
     private long id_entretenimento;
-    private int qtde_pessoas;
-    private int qtde_dias;
 
     public static String getColunaId() {
         return COLUNA_ID;
@@ -70,6 +66,10 @@ public class Viagem {
 
     public static String getColunaHospedagem() {
         return COLUNA_HOSPEDAGEM;
+    }
+
+    public static String getColunaIdEntretenimento() {
+        return COLUNA_ID_ENTRETENIMENTO;
     }
 
     public long getId() {
@@ -134,21 +134,5 @@ public class Viagem {
 
     public void setId_entretenimento(long id_entretenimento) {
         this.id_entretenimento = id_entretenimento;
-    }
-
-    public int getQtde_pessoas() {
-        return qtde_pessoas;
-    }
-
-    public void setQtde_pessoas(int qtde_pessoas) {
-        this.qtde_pessoas = qtde_pessoas;
-    }
-
-    public int getQtde_dias() {
-        return qtde_dias;
-    }
-
-    public void setQtde_dias(int qtde_dias) {
-        this.qtde_dias = qtde_dias;
     }
 }

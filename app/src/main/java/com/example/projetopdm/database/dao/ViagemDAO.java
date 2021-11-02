@@ -28,8 +28,7 @@ public class ViagemDAO extends AbstrataDAO{
             Viagem.COLUNA_TARIFA_AEREA,
             Viagem.COLUNA_REFERICOES,
             Viagem.COLUNA_HOSPEDAGEM,
-            Viagem.COLUNA_QTDEPESSOAS,
-            Viagem.COLUNA_QTDEDIAS,
+            Viagem.COLUNA_ID_ENTRETENIMENTO,
 
     };
 
@@ -50,8 +49,7 @@ public class ViagemDAO extends AbstrataDAO{
             values.put(Viagem.COLUNA_TARIFA_AEREA, model.getTarifa_aerea());
             values.put(Viagem.COLUNA_REFERICOES, model.getRefeicoes());
             values.put(Viagem.COLUNA_HOSPEDAGEM, model.getHospedagem());
-            values.put(Viagem.COLUNA_QTDEDIAS, model.getQtde_dias());
-            values.put(Viagem.COLUNA_QTDEPESSOAS, model.getQtde_pessoas());
+            values.put(Viagem.COLUNA_ID_ENTRETENIMENTO,model.getId_entretenimento());
             linhasAfetadas = db.insert(Viagem.TABELA_NOME,null,values);
 
         }finally {
@@ -100,8 +98,7 @@ public class ViagemDAO extends AbstrataDAO{
         model.setTarifa_aerea(cursor.getFloat(4));
         model.setRefeicoes(cursor.getFloat(5));
         model.setHospedagem(cursor.getFloat(6));
-        model.setQtde_pessoas(cursor.getInt(7));
-        model.setQtde_dias(cursor.getInt(8));
+        model.setId_entretenimento(cursor.getLong(7));
         return model;
     }
 

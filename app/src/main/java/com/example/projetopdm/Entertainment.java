@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetopdm.util.Entretenimento;
 import com.example.projetopdm.util.Shared;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -24,9 +23,8 @@ public class Entertainment extends AppCompatActivity {
     private EditText nome, valor;
     private Button adicionar, finalizar;
     private Shared shared = new Shared(Entertainment.this);
-    private Set<String> set;
-    private List<String> Lista = new ArrayList<String>();
-    Gson gson = new Gson();
+    private Set<Entretenimento> set;
+    private List<Entretenimento> Lista = new ArrayList<Entretenimento>();
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,18 +40,17 @@ public class Entertainment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(set == null || set.size() == 0) {
-                    set = new HashSet<String>();
+                    set = new HashSet<Entretenimento>();
                     Lista.addAll(set);
                 }
-
 
                 Entretenimento model = new Entretenimento();
 
                 model.setNome(nome.getText().toString());
                 model.setValor(valor.getText().toString());
-                Lista.add(gson.toJson(model));
+                Lista.add(model);
 
-                for(String uri : Lista) {
+                for(Entretenimento uri : Lista) {
                     set.add(uri);
                 }
                 shared.put("ListaEntretenimento", set);
