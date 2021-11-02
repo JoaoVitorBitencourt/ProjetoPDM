@@ -1,17 +1,17 @@
 package com.example.projetopdm.util;
 
 public class ViagemCard {
-    private long qtde_dias;
+    private int qtde_dias;
     private String nome;
     private float total_viagem;
 
-    public ViagemCard(long qtde_dias, String nome, float total_viagem) {
+    public ViagemCard(int qtde_dias, String nome, float total_viagem) {
         this.qtde_dias = qtde_dias;
         this.nome = nome;
         this.total_viagem = total_viagem;
     }
 
-    public long getQtde_dias() {
+    public int getQtde_dias() {
         return qtde_dias;
     }
 
