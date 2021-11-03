@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="Ex: 10 km/l"/>
+            android:hint="Ex: R$ 80,00"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:layout_marginHorizontal="30dp"
-            android:hint="Ex: R$ 15,00"/>
+            android:hint="Ex: 1"/>
 
         <TextView
             android:layout_width="match_parent"

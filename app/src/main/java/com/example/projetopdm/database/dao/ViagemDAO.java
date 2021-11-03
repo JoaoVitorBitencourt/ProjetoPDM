@@ -30,7 +30,7 @@ public class ViagemDAO extends AbstrataDAO{
             Viagem.COLUNA_HOSPEDAGEM,
             Viagem.COLUNA_QTDEPESSOAS,
             Viagem.COLUNA_QTDEDIAS,
-
+            Viagem.COLUNA_NOMEVIAGEM
     };
 
     public ViagemDAO(final Context contexto){
@@ -52,6 +52,7 @@ public class ViagemDAO extends AbstrataDAO{
             values.put(Viagem.COLUNA_HOSPEDAGEM, model.getHospedagem());
             values.put(Viagem.COLUNA_QTDEDIAS, model.getQtde_dias());
             values.put(Viagem.COLUNA_QTDEPESSOAS, model.getQtde_pessoas());
+            values.put(Viagem.COLUNA_NOMEVIAGEM, model.getNome_viagem());
             linhasAfetadas = db.insert(Viagem.TABELA_NOME,null,values);
 
         }finally {
@@ -89,6 +90,32 @@ public class ViagemDAO extends AbstrataDAO{
         return lista;
     }
 
+    public Viagem SelectCard(long id_card){
+
+        Viagem viagem = new Viagem();
+
+        Viagem model = null;
+        try{
+            Open();
+            Cursor cursor = db.query(
+                    Viagem.TABELA_NOME,
+                    colunas,
+                    Viagem.COLUNA_ID + " = ?",new String[]{Long.toString(id_card)},
+                    null,
+                    null,
+                    null,
+                    null);
+
+            cursor.moveToFirst();
+
+            viagem = CursorToStructure(cursor);
+
+        }finally {
+            Close();
+        }
+        return viagem;
+    }
+
 
 
     public final Viagem CursorToStructure(Cursor cursor){
@@ -102,6 +129,7 @@ public class ViagemDAO extends AbstrataDAO{
         model.setHospedagem(cursor.getFloat(6));
         model.setQtde_pessoas(cursor.getInt(7));
         model.setQtde_dias(cursor.getInt(8));
+        model.setNome_viagem(cursor.getString(9));
         return model;
     }
 

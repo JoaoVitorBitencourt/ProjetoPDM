@@ -2,15 +2,10 @@ package com.example.projetopdm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,11 +16,8 @@ import com.example.projetopdm.adapter.RvAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.projetopdm.util.Entretenimento;
 import com.example.projetopdm.util.Shared;
 import com.example.projetopdm.util.ViagemCard;
-
-import java.util.Set;
 
 public class Trips extends AppCompatActivity {
 
@@ -33,17 +25,15 @@ public class Trips extends AppCompatActivity {
     private ViagemDAO dao;
     private List<Viagem> model;
     private Shared shared = new Shared(Trips.this);
-    Viagem viagemModel=new Viagem();
-    private Set<Entretenimento> set;
-    List<ViagemCard> viagens = new ArrayList<>();
-    private float total;
+    List<ViagemCard> viagens;
     private RecyclerView rv;
     private LinearLayoutManager llm;
 
     public void atualizar(){
+        viagens = new ArrayList<>();
         model=dao.Select(shared.getLong("ID"));
         for(Viagem model : model){
-            viagens.add(new ViagemCard(model.getId(), "Viagem Teste 2", model.getValor_total()));
+            viagens.add(new ViagemCard(model.getId(), model.getQtde_dias(), model.getNome_viagem(), model.getValor_total()));
         }
         RvAdapter adapter = new RvAdapter(viagens);
 
@@ -67,8 +57,6 @@ public class Trips extends AppCompatActivity {
         Intent configInicial = new Intent(Trips.this, InitialInformation.class);
         rv = findViewById(R.id.recycler_view);
         llm = new LinearLayoutManager(this);
-
-        atualizar();
 
         adicionarViagem = findViewById(R.id.adicionarViagem);
         adicionarViagem.setOnClickListener(new View.OnClickListener() {

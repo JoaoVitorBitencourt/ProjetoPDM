@@ -13,7 +13,8 @@ public class Viagem {
             COLUNA_REFERICOES="valor_refeicoes",
             COLUNA_HOSPEDAGEM="valor_hospedagem",
             COLUNA_QTDEDIAS="qtde_dias",
-            COLUNA_QTDEPESSOAS="qtde_pessoas"
+            COLUNA_QTDEPESSOAS="qtde_pessoas",
+            COLUNA_NOMEVIAGEM="nome_viagem"
             ;
 
     public static final String
@@ -28,7 +29,8 @@ public class Viagem {
                     +   COLUNA_REFERICOES + " refeicoes float not null, "
                     +   COLUNA_HOSPEDAGEM + " hospedagem float not null, "
                     +   COLUNA_QTDEDIAS + " integer not null, "
-                    +   COLUNA_QTDEPESSOAS + " integer not null );";
+                    +   COLUNA_QTDEPESSOAS + " integer not null, "
+                    +   COLUNA_NOMEVIAGEM + " varchar(100) not null );";
 
     public static final String
             DROP_TABLE = " drop table if exists " + TABELA_NOME;
@@ -43,6 +45,7 @@ public class Viagem {
     private long id_entretenimento;
     private int qtde_pessoas;
     private int qtde_dias;
+    private String nome_viagem;
 
     public static String getColunaId() {
         return COLUNA_ID;
@@ -146,6 +149,14 @@ public class Viagem {
 
     public int getQtde_dias() {
         return qtde_dias;
+    }
+
+    public String getNome_viagem() {
+        return nome_viagem;
+    }
+
+    public void setNome_viagem(String nome_viagem) {
+        this.nome_viagem = nome_viagem;
     }
 
     public void setQtde_dias(int qtde_dias) {

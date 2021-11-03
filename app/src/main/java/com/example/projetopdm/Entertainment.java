@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,6 +58,7 @@ public class Entertainment extends AppCompatActivity {
                     set.add(uri);
                 }
                 shared.put("ListaEntretenimento", set);
+                Toast.makeText(Entertainment.this, "Entretenimento adicionado com sucesso!!", Toast.LENGTH_SHORT).show();
             }
         });
 

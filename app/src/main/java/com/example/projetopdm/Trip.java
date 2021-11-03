@@ -20,6 +20,7 @@ import com.example.projetopdm.util.Entretenimento;
 import com.example.projetopdm.util.Shared;
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.Set;
 public class Trip extends AppCompatActivity {
 
     private Button adicionarCustoViagemAerea, adicionarCustoRefeicao, adicionarEntretenimento, adicionarCustoHospedagem, salvarViagem, adicionarCustoCombustivel;
-    private TextView qtdadePessoas, duracaoViagem, custoCombustivelText, custoViagemAereaText, custoRefeicoesText, custoHospedagemText;
+    private TextView qtdadePessoas, duracaoViagem, custoCombustivelText, custoViagemAereaText, custoRefeicoesText, custoHospedagemText, custoEntretenimento;
     private Shared shared = new Shared(Trip.this);
     public int returnActivity, qtdeDias, qtdePessoas;
     private ListView listaEntretenimento;
@@ -57,14 +58,15 @@ public class Trip extends AppCompatActivity {
         custoViagemAereaText = findViewById(R.id.custoViagemAereaText);
         custoRefeicoesText = findViewById(R.id.custoRefeicoesText);
         custoHospedagemText = findViewById(R.id.custoHospedagemText);
+        custoEntretenimento = findViewById(R.id.custoEntretenimento);
         set = shared.getStringSet("ListaEntretenimento");
 
         if(set != null && set.size() != 0) {
             list = new ArrayList<String>(set);
 
-            //for(int i = 0; i < list.size(); i++) {
             for(String entretenimentoJson : list) {
                 Entretenimento entretenimento = gson.fromJson(entretenimentoJson, Entretenimento.class);
+                totalEntretenimento += Float.parseFloat(entretenimento.getValor());
                 listaModel.add(entretenimento);
             }
 
@@ -73,11 +75,15 @@ public class Trip extends AppCompatActivity {
 
         qtdadePessoas.setText(shared.getString("qtdePessoas"));
         duracaoViagem.setText(shared.getString("qtdeDias"));
-        custoCombustivelText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoCombustivel")) == null ? 0.00f : shared.getFloat("TotalCustoCombustivel")* 100) /100);
+        /*custoCombustivelText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoCombustivel")) == null ? 0.00f : shared.getFloat("TotalCustoCombustivel")* 100) /100);
         custoViagemAereaText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoViagemAerea")) == null ? 0.00f : shared.getFloat("TotalCustoViagemAerea")* 100) /100);
         custoRefeicoesText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoRefeicoes")) == null ? 0.00f : shared.getFloat("TotalCustoRefeicoes")* 100) /100);
-        custoHospedagemText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoHospedagem")) == null ? 0.00f : shared.getFloat("TotalCustoHospedagem")* 100) /100);
-        //listaEntretenimento.setAdapter(new EntretenimentoAdapter(Trip.this, new EntretenimentoDAO(this).Select(1)));
+        custoHospedagemText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoHospedagem")) == null ? 0.00f : shared.getFloat("TotalCustoHospedagem")* 100) /100);*/
+        custoEntretenimento.setText("R$ " + new DecimalFormat("###,###,##0.00").format(totalEntretenimento));
+        custoCombustivelText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoCombustivel")));
+        custoViagemAereaText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoViagemAerea")));
+        custoRefeicoesText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoRefeicoes")));
+        custoHospedagemText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoHospedagem")));
     }
 
     @Override
@@ -144,7 +150,7 @@ public class Trip extends AppCompatActivity {
         salvarViagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Viagem model= new Viagem();
+                Viagem model;
                 model=getViagemModel();
                 if(dao.Insert(model)!=-1){
 
@@ -153,10 +159,11 @@ public class Trip extends AppCompatActivity {
 
                     //-pegar a lista no shared e passar pro laço de repetição.
 
-                    /*for(Entretenimento uri : Lista) {
-                        Ent_model = set_Entretenimento(id_viagem);
-                        E_dao.Insert(Ent_model);
-                    }*/
+                    for(Entretenimento uri : listaModel) {
+                        EntretenimentoModel entretenimentoModel = parseEntretenimentoModel(uri);
+                        entretenimentoModel.setIdviagem(id_viagem);
+                        E_dao.Insert(entretenimentoModel);
+                    }
 
                     Toast.makeText(Trip.this, "Viagem cadastrada", Toast.LENGTH_LONG).show();
                 }else{
@@ -164,30 +171,16 @@ public class Trip extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
-
-    private final Entretenimento getEntretenimentoModel(){
-        Entretenimento entretenimento = new Entretenimento();
-       // entretenimento.setNome();
-        //entretenimento.setValor();
+    private final EntretenimentoModel parseEntretenimentoModel(Entretenimento model){
+        EntretenimentoModel entretenimento = new EntretenimentoModel();
+        entretenimento.setNome(model.getNome());
+        entretenimento.setValor_total(Float.parseFloat(model.getValor()));
         return entretenimento;
     }
 
-    private final EntretenimentoModel set_Entretenimento(Entretenimento model, long id_viagem){
-        EntretenimentoModel ent_model= new EntretenimentoModel();
-        ent_model.setNome(model.getNome());
-        ent_model.setValor_total(Float.parseFloat(model.getValor()));
-        ent_model.setIdviagem(id_viagem);
-        return ent_model;
-    }
-
     private final Viagem getViagemModel(){
-        for(Entretenimento model : listaModel){
-            totalEntretenimento += Float.parseFloat(model.getValor());
-        }
         Viagem viagem= new Viagem();
         Total_Airfare=(shared.getFloat("TotalCustoViagemAerea"));
         Total_Fuel=(shared.getFloat("TotalCustoCombustivel"));
@@ -196,7 +189,13 @@ public class Trip extends AppCompatActivity {
         Total_Valor_Viagem=Total_Airfare + Total_Fuel + Total_Snack + Total_Accommodation + totalEntretenimento;
         qtdeDias=Integer.parseInt(shared.getString("qtdeDias"));
         qtdePessoas=Integer.parseInt(shared.getString("qtdePessoas"));
+        String nomeViagem = shared.getString("nomeViagem");
         id_user=(shared.getLong("ID"));
+
+        shared.put("TotalCustoViagemAerea", 0.00f);
+        shared.put("TotalCustoCombustivel", 0.00f);
+        shared.put("TotalCustoRefeicoes", 0.00f);
+        shared.put("TotalCustoHospedagem", 0.00f);
 
         viagem.setIdusuario(id_user);
         viagem.setTarifa_aerea(Total_Airfare);
@@ -206,7 +205,7 @@ public class Trip extends AppCompatActivity {
         viagem.setValor_total(Total_Valor_Viagem);
         viagem.setQtde_pessoas(qtdePessoas);
         viagem.setQtde_dias(qtdeDias);
-        viagem.setId_entretenimento(-1);
+        viagem.setNome_viagem(nomeViagem);
         return viagem;
     }
 }

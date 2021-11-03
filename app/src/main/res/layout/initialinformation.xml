@@ -74,6 +74,24 @@
             android:textStyle="bold"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
+            android:text="Informe o nome da viagem"/>
+
+        <EditText
+            android:id="@+id/nomeViagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Ex: Viagem para Laguna" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
             android:text="Qual o número de pessoas?"/>
 
         <EditText

@@ -3,12 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
+    android:padding="1dp"
+    android:layout_marginTop="2dp"
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="center"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardElevation="5dp"
         android:layout_width="346dp"
         android:layout_height="300dp"
         android:id="@+id/cv"
@@ -43,14 +47,17 @@
                         android:layout_height="wrap_content"
                         android:text="teste"
                         android:id="@+id/tituloCard"
-                        android:gravity="center"/>
+                        android:paddingLeft="10dp"
+                        android:textStyle="bold"
+                        android:gravity="left"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="teste"
                         android:id="@+id/dataCard"
-                        android:gravity="center"/>
+                        android:paddingLeft="10dp"
+                        android:gravity="left"/>
 
                 </LinearLayout>
             </GridLayout>
@@ -60,22 +67,27 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/untitled_4" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="3dp"
-                android:text="teste"
-                android:id="@+id/totalViagem"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="6dp"
-                android:text="teste"
-                android:linksClickable="true"
-                android:textColor="@color/purple_500"/>
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:textStyle="bold"
+                    android:text="Preço da viagem: "/>
+
+                <TextView
+                    android:id="@+id/totalViagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="teste" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -14,7 +14,7 @@ import com.example.projetopdm.util.Shared;
 
 public class InitialInformation extends AppCompatActivity {
 
-    private EditText qtdePessoas, qtdeDias;
+    private EditText qtdePessoas, qtdeDias, nomeViagem;
     private Button btnSalvar;
     Shared shared = new Shared(InitialInformation.this);
 
@@ -25,16 +25,18 @@ public class InitialInformation extends AppCompatActivity {
 
         qtdePessoas = findViewById(R.id.qtdePessoas);
         qtdeDias = findViewById(R.id.qtdeDias);
+        nomeViagem = findViewById(R.id.nomeViagem);
         btnSalvar = findViewById(R.id.btnSalvar);
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(qtdePessoas.getText().toString().equals("") || qtdeDias.getText().toString().equals("")){
+                if(qtdePessoas.getText().toString().equals("") || qtdeDias.getText().toString().equals("") || nomeViagem.getText().toString().equals("")){
                     Toast.makeText(InitialInformation.this, "Os campos acima precisam ser preenchidos", Toast.LENGTH_SHORT).show();
                 } else {
                     shared.put("qtdeDias", qtdeDias.getText().toString());
                     shared.put("qtdePessoas", qtdePessoas.getText().toString());
+                    shared.put("nomeViagem", nomeViagem.getText().toString());
                     startActivity(new Intent(InitialInformation.this, Trip.class));
                 }
             }
