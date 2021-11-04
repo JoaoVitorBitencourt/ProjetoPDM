@@ -61,11 +61,15 @@
                 </LinearLayout>
             </GridLayout>
 
-            <ImageView
+            <!--<ImageView
                 android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/easy_travel" />
+                android:src="@drawable/easy_travel" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -37,7 +37,7 @@ public class CardInfo extends AppCompatActivity {
         valorTotalViagem = findViewById(R.id.valorTotal);
         valorPorPessoa = findViewById(R.id.valorPorPessoa);
         ListView listaEntretenimento = findViewById(R.id.listEntretenimento);
-        Entretenimento model = new Entretenimento();
+        Entretenimento model;
 
         model_viagem = viagemDao.SelectCard(getIntent().getLongExtra("IdViagem", 0));
         List<EntretenimentoModel> listaModel = entretenimentoDao.Select(getIntent().getLongExtra("IdViagem", 0));
@@ -46,6 +46,7 @@ public class CardInfo extends AppCompatActivity {
             List<Entretenimento> listaModelStrig = new ArrayList<>();
 
             for (EntretenimentoModel entretenimentoModel : listaModel) {
+                model = new Entretenimento();
                 model.setNome(entretenimentoModel.getNome());
                 model.setValor(Float.toString(entretenimentoModel.getValor_total()));
                 listaModelStrig.add(model);
