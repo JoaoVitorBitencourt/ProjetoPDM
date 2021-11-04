@@ -76,15 +76,15 @@ public class EntretenimentoDAO extends AbstrataDAO{
             Close();
         }
 
-        return null;
+        return lista;
     }
 
     public final EntretenimentoModel CursorToStructure(Cursor cursor){
         EntretenimentoModel model=new EntretenimentoModel();
         model.setId(cursor.getLong(0));
-        model.setIdviagem(cursor.getLong(0));
-        model.setNome(cursor.getString(1));
-        model.setValor_total(cursor.getFloat(2));
+        model.setIdviagem(cursor.getLong(1));
+        model.setNome(cursor.getString(2));
+        model.setValor_total(cursor.getFloat(3));
         return model;
     }
 

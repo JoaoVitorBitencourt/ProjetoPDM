@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:padding="1dp"
@@ -8,8 +9,6 @@
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="center"
         card_view:cardUseCompatPadding="true"
         card_view:cardElevation="5dp"
@@ -31,10 +30,10 @@
                 android:columnCount="10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/untitled_3"
-                    android:layout_columnWeight="2"/>
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:layout_columnWeight="2"
+                    android:src="@drawable/logo" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -63,9 +62,10 @@
             </GridLayout>
 
             <ImageView
+                android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/untitled_4" />
+                android:src="@drawable/easy_travel" />
 
             <LinearLayout
                 android:layout_width="match_parent"

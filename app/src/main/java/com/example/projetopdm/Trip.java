@@ -38,7 +38,6 @@ public class Trip extends AppCompatActivity {
     private ViagemDAO dao;
     private List<Viagem> model_viagem;
     private EntretenimentoDAO E_dao;
-    private List<Entretenimento> Lista = new ArrayList<Entretenimento>();
     private Set<String> set;
     private List<Entretenimento> listaModel = new ArrayList<Entretenimento>();
     Gson gson = new Gson();
@@ -75,10 +74,6 @@ public class Trip extends AppCompatActivity {
 
         qtdadePessoas.setText(shared.getString("qtdePessoas"));
         duracaoViagem.setText(shared.getString("qtdeDias"));
-        /*custoCombustivelText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoCombustivel")) == null ? 0.00f : shared.getFloat("TotalCustoCombustivel")* 100) /100);
-        custoViagemAereaText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoViagemAerea")) == null ? 0.00f : shared.getFloat("TotalCustoViagemAerea")* 100) /100);
-        custoRefeicoesText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoRefeicoes")) == null ? 0.00f : shared.getFloat("TotalCustoRefeicoes")* 100) /100);
-        custoHospedagemText.setText("R$ " + Math.floor(Float.toString(shared.getFloat("TotalCustoHospedagem")) == null ? 0.00f : shared.getFloat("TotalCustoHospedagem")* 100) /100);*/
         custoEntretenimento.setText("R$ " + new DecimalFormat("###,###,##0.00").format(totalEntretenimento));
         custoCombustivelText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoCombustivel")));
         custoViagemAereaText.setText("R$ " + new DecimalFormat("###,###,##0.00").format(shared.getFloat("TotalCustoViagemAerea")));
@@ -155,7 +150,7 @@ public class Trip extends AppCompatActivity {
                 if(dao.Insert(model)!=-1){
 
                     model_viagem = dao.Select(model.getIdusuario());
-                    id_viagem = model_viagem.size()-1;
+                    id_viagem = model_viagem.size();
 
                     //-pegar a lista no shared e passar pro laço de repetição.
 

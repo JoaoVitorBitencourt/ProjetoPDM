@@ -12,7 +12,8 @@
     <string name="numMesa">Número Mesa</string>
     <string name="Login">Faça Login</string>
     <string name="MensagemLogin">Seja bem-vindo de volta! Faça login na sua conta:</string>
-    <string name="NaoPossuiLogin">Não tem conta ainda? Registre-se</string>
+    <string name="NaoPossuiLogin">Não tem conta ainda?</string>
+    <string name="RegistreSe">Registre-se</string>
     <string name="Cadastro">Cadastre-se</string>
     <string name="MensagemCadastro">Ainda não tem conta conosco? É simples de criar! Você só precisa inserir os seus dados abaixo.</string>
     <string name="Email">Email</string>
@@ -30,4 +31,5 @@
     <string name="hotel">Hospedagem</string>
     <string name="entretenimento">Entretenimento/Diversos</string>
     <string name="dadoInvalido">Tipo de dado inválido!</string>
+    <string name="listaEntretenimento">Lista de entretenimentos</string>
 </resources>

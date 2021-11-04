@@ -64,27 +64,27 @@
         android:textColor="@color/white"
         android:background="@color/primary"/>
 
-    <RelativeLayout
+    <LinearLayout
+        android:paddingTop="140dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/cadastre_se"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="60dp"
-            android:linksClickable="true"
-            android:text="@string/NaoPossuiLogin" />
+            <TextView
 
-    </RelativeLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="60dp"
+                android:linksClickable="true"
+                android:text="@string/NaoPossuiLogin" />
 
-    <!-- <Button
-        android:id="@+id/btnCadastro"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/btn_cadastro" /> -->
+            <TextView
+                android:id="@+id/cadastre_se"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/purple_500"
+                android:text="@string/RegistreSe"/>
+    </LinearLayout>
 
 </LinearLayout>
